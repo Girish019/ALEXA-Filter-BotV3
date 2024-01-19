@@ -1,11 +1,11 @@
-#Coded by KA18 the @legend580 💛❤️
+#Coded by KA18 the 
 
 import math
 import asyncio
 import logging
 from info import *
 from typing import Dict, Union
-from MJbot import work_loads
+from alexa import work_loads
 from pyrogram import Client, utils, raw
 from .file_properties import get_file_ids
 from pyrogram.session import Session, Auth
