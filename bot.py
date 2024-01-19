@@ -1,4 +1,4 @@
-#Coded by KA18 the @legend580 💛❤️
+#Coded by KA18 the 
 
 import sys
 import glob
@@ -37,9 +37,9 @@ from plugins import web_server
 
 import asyncio
 from pyrogram import idle
-from MJbot import MJBot
+from ALEXA import AMBot
 from util.keepalive import ping_server
-from MJbot.clients import initialize_clients
+from AMbot.clients import initialize_clients
 
 
 ppath = "plugins/*.py"
@@ -48,11 +48,11 @@ MJBot.start()
 loop = asyncio.get_event_loop()
 
 
-async def MJ_start():
+async def AM_start():
     print('\n')
     print('Initalizing MJ Bot')
-    bot_info = await MJBot.get_me()
-    MJBot.username = bot_info.username
+    bot_info = await AMBot.get_me()
+    AMBot.username = bot_info.username
     await initialize_clients()
     for name in files:
         with open(name) as a:
@@ -64,7 +64,7 @@ async def MJ_start():
             load = importlib.util.module_from_spec(spec)
             spec.loader.exec_module(load)
             sys.modules["plugins." + plugin_name] = load
-            print("MJ Imported => " + plugin_name)
+            print("AM Imported => " + plugin_name)
     if ON_HEROKU:
         asyncio.create_task(ping_server())
     b_users, b_chats = await db.get_banned()
