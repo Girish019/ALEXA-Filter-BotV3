@@ -29,13 +29,13 @@ async def song(client, message):
         thumb_name = f'thumb{title}.jpg'
         thumb = requests.get(thumbnail, allow_redirects=True)
         open(thumb_name, 'wb').write(thumb.content)
-        performer = f"[RB NETWORKS™]" 
+        performer = f"[AM NETWORKS™]" 
         duration = results[0]["duration"]
         url_suffix = results[0]["url_suffix"]
         views = results[0]["views"]
     except Exception as e:
         print(str(e))
-        return await m.edit("Example: /song Kaatera song")
+        return await m.edit("Example: /song Kantara title song")
                 
     await m.edit("**dσwnlσαdíng чσur ѕσng...!**")
     try:
@@ -44,7 +44,7 @@ async def song(client, message):
             audio_file = ydl.prepare_filename(info_dict)
             ydl.process_info(info_dict)
 
-        cap = "**BY›› [MJ NETWORKS™](https://t.me/MJhitz)**"
+        cap = "**BY›› [AM NETWORKS™](https://t.me/alexa_movies)**"
         secmul, dur, dur_arr = 1, 0, duration.split(':')
         for i in range(len(dur_arr)-1, -1, -1):
             dur += (int(dur_arr[i]) * secmul)
