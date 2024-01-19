@@ -92,7 +92,7 @@ async def AM_start():
 
 if __name__ == '__main__':
     try:
-        loop.run_until_complete(MJ_start())
+        loop.run_until_complete(AM_start())
     except KeyboardInterrupt:
         logging.info('Service Stopped Bye 👋')
 
