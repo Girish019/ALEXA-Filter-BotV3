@@ -1387,7 +1387,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
     elif query.data == "about":
         buttons = [[
             InlineKeyboardButton('𖣘 Mᴏᴠɪᴇ Gʀᴏᴜᴘ', url=GRP_LNK),
-            InlineKeyboardButton('♲︎︎︎ Uᴘᴅᴀᴛᴇs Cʜᴀɴɴᴇʟ', url="https://t.me/MJhitz")
+            InlineKeyboardButton('♲︎︎︎ Uᴘᴅᴀᴛᴇs Cʜᴀɴɴᴇʟ', url=CHNL_LNK)
         ],[
             InlineKeyboardButton('Hᴏᴍᴇ', callback_data='start'),
             InlineKeyboardButton('Cʟᴏsᴇ', callback_data='close_data')
@@ -1642,7 +1642,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
     elif query.data == "tele":
             btn = [[
                     InlineKeyboardButton("⟸ Bᴀᴄᴋ", callback_data="help"),
-                    InlineKeyboardButton("Cᴏɴᴛᴀᴄᴛ", url="telegram.me/MJ_supportbot")
+                    InlineKeyboardButton("Cᴏɴᴛᴀᴄᴛ", url=f"telegram.me/{SUPPORT_CHAT}")
                   ]]
             await client.edit_message_media(
                 query.message.chat.id, 
@@ -1679,7 +1679,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
     elif query.data == "share":
             btn = [[
                     InlineKeyboardButton("⟸ Bᴀᴄᴋ", callback_data="help"),
-                    InlineKeyboardButton("Cᴏɴᴛᴀᴄᴛ", url="telegram.me/MJ_supportbot")
+                    InlineKeyboardButton("Cᴏɴᴛᴀᴄᴛ", url=f"telegram.me/{SUPPORT_CHAT}")
                   ]]
             await client.edit_message_media(
                 query.message.chat.id, 
@@ -1698,7 +1698,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
     elif query.data == "song":
             btn = [[
                     InlineKeyboardButton("⟸ Bᴀᴄᴋ", callback_data="help"),
-                    InlineKeyboardButton("Cᴏɴᴛᴀᴄᴛ", url="telegram.me/MJ_supportbot")
+                    InlineKeyboardButton("Cᴏɴᴛᴀᴄᴛ", url=f"telegram.me/{SUPPORT_CHAT}")
                   ]]
             await client.edit_message_media(
                 query.message.chat.id, 
@@ -1735,7 +1735,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
     elif query.data == "sticker":
             btn = [[
                     InlineKeyboardButton("⟸ Bᴀᴄᴋ", callback_data="help"),
-                    InlineKeyboardButton("Cᴏɴᴛᴀᴄᴛ", url="telegram.me/MJ_supportbot")
+                    InlineKeyboardButton("Cᴏɴᴛᴀᴄᴛ", url=f"telegram.me/{SUPPORT_CHAT}")
                   ]]
             await client.edit_message_media(
                 query.message.chat.id, 
@@ -1754,7 +1754,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
     elif query.data == "tamil_info":
             btn = [[
                     InlineKeyboardButton("⟸ Bᴀᴄᴋ", callback_data="shortlink_info"),
-                    InlineKeyboardButton("Cᴏɴᴛᴀᴄᴛ", url="telegram.me/MJ_supportbot")
+                    InlineKeyboardButton("Cᴏɴᴛᴀᴄᴛ", url=f"telegram.me/{SUPPORT_CHAT}")
                   ]]
             await client.edit_message_media(
                 query.message.chat.id, 
@@ -1773,7 +1773,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
     elif query.data == "premium_info":
             btn = [[
                     InlineKeyboardButton("⟸ Bᴀᴄᴋ", callback_data="start"),
-                    InlineKeyboardButton("Cᴏɴᴛᴀᴄᴛ", url="telegram.me/MJ_supportbot")
+                    InlineKeyboardButton("Cᴏɴᴛᴀᴄᴛ", url=f"telegram.me/{SUPPORT_CHAT}")
                   ]]
             await client.edit_message_media(
                 query.message.chat.id, 
@@ -1792,7 +1792,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
     elif query.data == "english_info":
             btn = [[
                     InlineKeyboardButton("⟸ Bᴀᴄᴋ", callback_data="shortlink_info"),
-                    InlineKeyboardButton("Cᴏɴᴛᴀᴄᴛ", url="telegram.me/MJ_supportbot")
+                    InlineKeyboardButton("Cᴏɴᴛᴀᴄᴛ", url=f"telegram.me/{SUPPORT_CHAT}")
                   ]]
             await client.edit_message_media(
                 query.message.chat.id, 
@@ -1811,7 +1811,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
     elif query.data == "hindi_info":
             btn = [[
                     InlineKeyboardButton("⟸ Bᴀᴄᴋ", callback_data="shortlink_info"),
-                    InlineKeyboardButton("Cᴏɴᴛᴀᴄᴛ", url="telegram.me/MJ_supportbot")
+                    InlineKeyboardButton("Cᴏɴᴛᴀᴄᴛ", url=f"telegram.me/{SUPPORT_CHAT}")
                   ]]
             await client.edit_message_media(
                 query.message.chat.id, 
@@ -1830,7 +1830,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
     elif query.data == "telugu_info":
             btn = [[
                     InlineKeyboardButton("⟸ Bᴀᴄᴋ", callback_data="shortlink_info"),
-                    InlineKeyboardButton("Cᴏɴᴛᴀᴄᴛ", url="telegram.me/MJ_supportbot")
+                    InlineKeyboardButton("Cᴏɴᴛᴀᴄᴛ", url=f"telegram.me/{SUPPORT_CHAT}")
                   ]]
             await client.edit_message_media(
                 query.message.chat.id, 
@@ -1849,7 +1849,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
     elif query.data == "malayalam_info":
             btn = [[
                     InlineKeyboardButton("⟸ Bᴀᴄᴋ", callback_data="shortlink_info"),
-                    InlineKeyboardButton("Cᴏɴᴛᴀᴄᴛ", url="telegram.me/MJ_supportbot")
+                    InlineKeyboardButton("Cᴏɴᴛᴀᴄᴛ", url=f"telegram.me/{SUPPORT_CHAT}")
                   ]]
             await client.edit_message_media(
                 query.message.chat.id, 
@@ -1868,7 +1868,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
     elif query.data == "urdu_info":
             btn = [[
                     InlineKeyboardButton("⟸ Bᴀᴄᴋ", callback_data="shortlink_info"),
-                    InlineKeyboardButton("Cᴏɴᴛᴀᴄᴛ", url="telegram.me/MJ_supportbot")
+                    InlineKeyboardButton("Cᴏɴᴛᴀᴄᴛ", url=f"telegram.me/{SUPPORT_CHAT}")
                   ]]
             await client.edit_message_media(
                 query.message.chat.id, 
@@ -1887,7 +1887,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
     elif query.data == "bangladesh_info":
             btn = [[
                     InlineKeyboardButton("⟸ Bᴀᴄᴋ", callback_data="shortlink_info"),
-                    InlineKeyboardButton("Cᴏɴᴛᴀᴄᴛ", url="telegram.me/MJ_supportbot")
+                    InlineKeyboardButton("Cᴏɴᴛᴀᴄᴛ", url=f"telegram.me/{SUPPORT_CHAT}")
                   ]]
 
             await client.edit_message_media(
@@ -1907,7 +1907,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
     elif query.data == "kannada_info":
             btn = [[
                     InlineKeyboardButton("⟸ Bᴀᴄᴋ", callback_data="shortlink_info"),
-                    InlineKeyboardButton("Cᴏɴᴛᴀᴄᴛ", url="telegram.me/MJ_supportbot")
+                    InlineKeyboardButton("Cᴏɴᴛᴀᴄᴛ", url=f"telegram.me/{SUPPORT_CHAT}")
                   ]]
             await client.edit_message_media(
                 query.message.chat.id, 
@@ -1926,7 +1926,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
     elif query.data == "gujarati_info":
             btn = [[
                     InlineKeyboardButton("⟸ Bᴀᴄᴋ", callback_data="shortlink_info"),
-                    InlineKeyboardButton("Cᴏɴᴛᴀᴄᴛ", url="telegram.me/MJ_supportbot")
+                    InlineKeyboardButton("Cᴏɴᴛᴀᴄᴛ", url=f"telegram.me/{SUPPORT_CHAT}")
                   ]]
         
             await client.edit_message_media(
@@ -2052,7 +2052,7 @@ async def auto_filter(client, msg, spoll=False):
                     continue
                 else:
                     search = search + x + " "
-            search = re.sub(r"\b(pl(i|e)*?(s|z+|ease|se|ese|(e+)s(e)?)|((send|snd|giv(e)?|gib)(\sme)?)|movie(s)?|new|latest|bro|bruh|broh|helo|that|find|dubbed|link|venum|iruka|pannunga|pannungga|anuppunga|anupunga|anuppungga|anupungga|film|undo|kitti|kitty|tharu|kittumo|kittum|movie|any(one)|with\ssubtitle(s)?)", "", search, flags=re.IGNORECASE)
+            search = re.sub(r"\b(pl(i|e)*?(s|z+|ease|se|ese|(e+)s(e)?)|((send|snd|giv(e)?|gib)(\sme)?)|movie(s)?|new|video|want|episode|Episope|season|Season|latest|bro|bruh|broh|helo|that|find|dubbed|dub|series|Series|link|venum|iruka|pannunga|pannungga|anuppunga|anupunga|anuppungga|anupungga|film|undo|kitti|kitty|tharu|kittumo|kittum|movie|Movie|movies|Movies|any(one)|with\ssubtitle(s)?)", "", search, flags=re.IGNORECASE)
             search = re.sub(r"\s+", " ", search).strip()
             search = search.replace("-", " ")
             search = search.replace(":","")
@@ -2063,8 +2063,10 @@ async def auto_filter(client, msg, spoll=False):
                 if settings["spell_check"]:
                     return await advantage_spell_chok(client, msg)
                 else:
-                    # if NO_RESULTS_MSG:
-                    #     await client.send_message(chat_id=LOG_CHANNEL, text=(script.NORSLTS.format(reqstr.id, reqstr.mention, search)))
+                    if NO_RESULTS_MSG:
+                        button = [[InlineKeyboardButton("ᴄᴏɴᴛᴀᴄᴛ ᴀᴅᴍɪɴ", url=f"https://t.me/{SUPPORT_CHAT}")]]
+                        await message.reply_text("<b>sᴏʀʀʏ ɴᴏ ꜰɪʟᴇs ᴡᴇʀᴇ ꜰᴏᴜɴᴅ ꜰᴏʀ ʏᴏᴜʀ ʀᴇǫᴜᴇꜱᴛ \n ᴅɪsᴄᴜss ᴛʜᴇ ǫᴜɪʀʏ ᴡɪᴛʜ ᴍʏ ᴀᴅᴍɪɴ </b>", reply_markup=InlineKeyboardMarkup(button))
+                        # await client.send_message(chat_id=LOG_CHANNEL, text=(script.NORSLTS.format(reqstr.id, reqstr.mention, search)))
                     return
         else:
             return
@@ -2257,7 +2259,7 @@ async def advantage_spell_chok(client, msg):
             continue
         else:
             query = query + x + " "
-    query = re.sub(r"\b(pl(i|e)*?(s|z+|ease|se|ese|(e+)s(e)?)|((send|snd|giv(e)?|gib)(\sme)?)|movie(s)?|new|latest|bro|bruh|broh|helo|that|find|dubbed|link|venum|iruka|pannunga|pannungga|anuppunga|anupunga|anuppungga|anupungga|film|undo|kitti|kitty|tharu|kittumo|kittum|movie|any(one)|with\ssubtitle(s)?)", "", query, flags=re.IGNORECASE)
+    query = re.sub(r"\b(pl(i|e)*?(s|z+|ease|se|ese|(e+)s(e)?)|((send|snd|giv(e)?|gib)(\sme)?)|movie(s)?|new|video|want|episode|Episope|season|Season|latest|bro|bruh|broh|helo|that|find|dubbed|dub|series|Series|link|venum|iruka|pannunga|pannungga|anuppunga|anupunga|anuppungga|anupungga|film|undo|kitti|kitty|tharu|kittumo|kittum|movie|Movie|movies|Movies|any(one)|with\ssubtitle(s)?)", "", query, flags=re.IGNORECASE)
     query = re.sub(r"\s+", " ", query).strip() + "movie"
     try:
         g_s = await search_gagala(query)
