@@ -76,7 +76,7 @@ class ALEXAMOVIES(Client):
                 yield message
                 current += 1
       
-AMBot = LegendMJBot()
+AMBot = ALEXAMOVIES()
 
 multi_clients = {}
 work_loads = {}
