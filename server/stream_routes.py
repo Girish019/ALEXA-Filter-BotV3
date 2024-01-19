@@ -7,7 +7,7 @@ import secrets
 import mimetypes
 from aiohttp import web
 from aiohttp.http_exceptions import BadStatusLine
-from MJbot import multi_clients, work_loads, StreamBot
+from ALEXA import multi_clients, work_loads, StreamBot
 from server.exceptions import FIleNotFound, InvalidHash
 from zzint import StartTime, __version__
 from ..util.custom_dl import ByteStreamer
@@ -19,7 +19,7 @@ routes = web.RouteTableDef()
 
 @routes.get("/", allow_head=True)
 async def root_route_handler(request):
-    return web.json_response("In & as MJhitzDeveloper...")
+    return web.json_response("In & as AM_BOTDeveloper...")
 
 
 @routes.get(r"/watch/{path:\S+}", allow_head=True)
