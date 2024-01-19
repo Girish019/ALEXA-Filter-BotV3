@@ -1,8 +1,8 @@
-#Coded by KA18 the @legend580 💛❤️
+#Coded by KA18 the 
 
 import jinja2
 from info import *
-from ALEXA import ALEXA
+import ALEXA
 from util.human_readable import humanbytes
 from util.file_properties import get_file_ids
 from server.exceptions import InvalidHash
