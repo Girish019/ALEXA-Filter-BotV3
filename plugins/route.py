@@ -7,7 +7,7 @@ import secrets
 import time
 import mimetypes
 from aiohttp.http_exceptions import BadStatusLine
-from ALEXA import multi_clients, work_loads, AMBOT
+from ALEXA import multi_clients, work_loads, AMBot
 from server.exceptions import FIleNotFound, InvalidHash
 from zzint import StartTime, __version__
 from util.custom_dl import ByteStreamer
