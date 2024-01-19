@@ -86,10 +86,10 @@ async def leave_a_chat(bot, message):
         chat = chat
     try:
         buttons = [[
-            InlineKeyboardButton('⌬ Mᴏᴠɪᴇ Gʀᴏᴜᴘ',url="https://t.me/+0fMMY79eUKExYjk1"),
-            InlineKeyboardButton("Bᴏᴛ Oᴡɴᴇʀ", url="t.me/MJ_supportbot")
+            InlineKeyboardButton('⌬ Mᴏᴠɪᴇ Gʀᴏᴜᴘ',url=GRP_LNK),
+            InlineKeyboardButton("Bᴏᴛ Oᴡɴᴇʀ", url=f"t.me/{SUPPORT_CHAT}")
         ],[
-            InlineKeyboardButton('Use Me Here', url=f'https://t.me/+0fMMY79eUKExYjk1')
+            InlineKeyboardButton('Use Me Here', url=GRP_LNK)
         ]]
         reply_markup=InlineKeyboardMarkup(buttons)
         await bot.send_message(
@@ -128,7 +128,7 @@ async def disable_chat(bot, message):
     await message.reply('Chat Successfully Disabled')
     try:
         buttons = [[
-            InlineKeyboardButton('Support', url=f'https://t.me/+0fMMY79eUKExYjk1')
+            InlineKeyboardButton('Support', url=f"t.me/{SUPPORT_CHAT}")
         ]]
         reply_markup=InlineKeyboardMarkup(buttons)
         await bot.send_message(
@@ -159,7 +159,7 @@ async def re_enable_chat(bot, message):
     await message.reply("Chat Successfully re-enabled")
 
 
-@Client.on_message(filters.command('stats') & filters.incoming)
+@Client.on_message(filters.command('stats') & filters.incoming & filters.user(ADMINS))
 async def get_ststs(bot, message):
     rju = await message.reply('Fetching stats..')
     total_users = await db.total_users_count()
