@@ -8,9 +8,7 @@ DB_URL = os.environ.get("DB_URL", "")
 mongo = pymongo.MongoClient(DB_URL)
 db = mongo[DB_NAME]
 dbcol = db["user"]
-
 # Total User
-
 
 # insert user data
 def insert(chat_id):
