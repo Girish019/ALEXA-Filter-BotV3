@@ -25,7 +25,7 @@ from pyrogram import Client
 from info import *
 
 
-class ALEXAMOVIES(Client):
+class LegendAMBot(Client):
 
     def __init__(self):
         super().__init__(
@@ -76,7 +76,7 @@ class ALEXAMOVIES(Client):
                 yield message
                 current += 1
       
-AMBot = ALEXAMOVIES()
+AMBot = LegendAMBot()
 
 multi_clients = {}
 work_loads = {}
