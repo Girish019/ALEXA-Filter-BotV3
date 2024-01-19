@@ -11,6 +11,7 @@ from database.connections_mdb import active_connection
 logger = logging.getLogger(__name__)
 cache_time = 0 if AUTH_USERS or AUTH_CHANNEL else CACHE_TIME
 
+
 async def inline_users(query: InlineQuery):
     if AUTH_USERS:
         if query.from_user and query.from_user.id in AUTH_USERS:
@@ -112,3 +113,4 @@ def get_reply_markup(query):
         ]
         ]
     return InlineKeyboardMarkup(buttons)
+
