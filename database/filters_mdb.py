@@ -10,7 +10,6 @@ myclient = pymongo.MongoClient(DATABASE_URI)
 mydb = myclient[DATABASE_NAME]
 
 
-
 async def add_filter(grp_id, text, reply_text, btn, file, alert):
     mycol = mydb[str(grp_id)]
     # mycol.create_index([('text', 'text')])
