@@ -1,4 +1,4 @@
-#Coded by KA18 the @legend580 💛❤️
+#Coded by KA18 the 
 
 from os import environ
 from typing import Dict, Optional
