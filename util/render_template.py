@@ -2,7 +2,7 @@
 
 import jinja2
 from info import *
-import ALEXA
+from ALEXA import AMBOT
 from util.human_readable import humanbytes
 from util.file_properties import get_file_ids
 from server.exceptions import InvalidHash
@@ -12,8 +12,8 @@ import aiohttp
 
 
 async def render_page(id, secure_hash, src=None):
-    file = await ALEXA.get_messages(int(FILE_STORE_CHANNEL), int(id))
-    file_data = await get_file_ids(ALEXA, int(FILE_STORE_CHANNEL), int(id))
+    file = await AMBOT.get_messages(int(FILE_STORE_CHANNEL), int(id))
+    file_data = await get_file_ids(AMBOT, int(FILE_STORE_CHANNEL), int(id))
     if file_data.unique_id[:6] != secure_hash:
         logging.debug(f"link hash: {secure_hash} - {file_data.unique_id[:6]}")
         logging.debug(f"Invalid hash for message with - ID {id}")
