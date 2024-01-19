@@ -36,11 +36,11 @@ auth_users = [int(user) if id_pattern.search(user) else user for user in environ
 AUTH_USERS = (auth_users + ADMINS) if auth_users else []
 PREMIUM = [int(user) if id_pattern.search(user) else user for user in environ.get('PREMIUM', " ").split()]
 auth_channel = environ.get('AUTH_CHANNEL', '-1001861055084')
-auth_grp = environ.get('AUTH_GROUP', '-1001723594469')
+auth_grp = environ.get('AUTH_GROUP', '-1001860300137')
 AUTH_CHANNEL = int(auth_channel) if auth_channel and id_pattern.search(auth_channel) else None
 AUTH_GROUPS = [int(ch) for ch in auth_grp.split()] if auth_grp else None
-support_chat_id = environ.get('SUPPORT_CHAT_ID', ' ')
-reqst_channel = environ.get('REQST_CHANNEL_ID', ' ')
+support_chat_id = environ.get('SUPPORT_CHAT_ID', '-1001860300137')
+reqst_channel = environ.get('REQST_CHANNEL_ID', '-1002016821222')
 REQST_CHANNEL = int(reqst_channel) if reqst_channel and id_pattern.search(reqst_channel) else None
 SUPPORT_CHAT_ID = int(support_chat_id) if support_chat_id and id_pattern.search(support_chat_id) else None
 NO_RESULTS_MSG = bool(environ.get("NO_RESULTS_MSG", True))
@@ -51,7 +51,7 @@ DATABASE_NAME = environ.get('DATABASE_NAME', "AMV2")
 COLLECTION_NAME = environ.get('COLLECTION_NAME', 'Telegram_files')
 
 # Others
-VERIFY = bool(environ.get('VERIFY', True))
+VERIFY = bool(environ.get('VERIFY', False))
 SHORTLINK_URL = environ.get('SHORTLINK_URL', 'tnshort.net')
 SHORTLINK_API = environ.get('SHORTLINK_API', '1183b34c88b1fd4e898d7d9dc7b6fc6a2bea9dd9')
 IS_SHORTLINK = bool(environ.get('IS_SHORTLINK', True))
@@ -78,7 +78,7 @@ LONG_IMDB_DESCRIPTION = is_enabled(environ.get("LONG_IMDB_DESCRIPTION", "False")
 SPELL_CHECK_REPLY = is_enabled(environ.get("SPELL_CHECK_REPLY", "True"), True)
 MAX_LIST_ELM = environ.get("MAX_LIST_ELM", None)
 INDEX_REQ_CHANNEL = int(environ.get('INDEX_REQ_CHANNEL', LOG_CHANNEL))
-FILE_STORE_CHANNEL = int(environ.get('FILE_STORE_CHANNEL', '-1001879897483'))
+FILE_STORE_CHANNEL = int(environ.get('FILE_STORE_CHANNEL', '-1002043663531'))
 MELCOW_NEW_USERS = is_enabled((environ.get('MELCOW_NEW_USERS', "True")), True)
 PROTECT_CONTENT = is_enabled((environ.get('PROTECT_CONTENT', "False")), False)
 PUBLIC_FILE_STORE = is_enabled((environ.get('PUBLIC_FILE_STORE', "True")), True)
@@ -101,9 +101,9 @@ URL = "https://mj-filter-v01.onrender.com/".format(FQDN) if ON_HEROKU or NO_PORT
     "https://mj-filter-v01.onrender.com/".format(FQDN, PORT)
 SLEEP_THRESHOLD = int(environ.get('SLEEP_THRESHOLD', '60'))
 WORKERS = int(environ.get('WORKERS', '10'))
-SESSION_NAME = str(environ.get('SESSION_NAME', 'MJBot'))
+SESSION_NAME = str(environ.get('SESSION_NAME', 'AMBot'))
 MULTI_CLIENT = False
-name = str(environ.get('name', 'MJhitz'))
+name = str(environ.get('name', 'ALEXA Movies'))
 PING_INTERVAL = int(environ.get("PING_INTERVAL", "1200"))  # 20 minutes
 if 'DYNO' in environ:
     ON_HEROKU = True
