@@ -12,7 +12,6 @@ mydb = myclient[DATABASE_NAME]
 async def add_gfilter(gfilters, text, reply_text, btn, file, alert):
     mycol = mydb[str(gfilters)]
     # mycol.create_index([('text', 'text')])
-
     data = {
         'text':str(text),
         'reply':str(reply_text),
