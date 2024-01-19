@@ -1,4 +1,4 @@
-#Coded by KA18 the @legend580 💛❤️
+#Coded by KA18 the 
 
 def humanbytes(size):
     # https://stackoverflow.com/a/49361727/4723940
