@@ -1,4 +1,4 @@
-#Coded by KA18 the @legend580 💛❤️
+#Coded by KA18 the 
 # thanks Adarsh Goel for Server Routing
 
 class InvalidHash(Exception):
