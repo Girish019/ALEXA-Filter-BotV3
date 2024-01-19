@@ -19,7 +19,6 @@ import base64
 logger = logging.getLogger(__name__)
 
 BATCH_FILES = {}
-MJ_GL = "https://t.me/+0fMMY79eUKExYjk1"
 @Client.on_message(filters.command("start") & filters.incoming)
 async def start(client, message):
     if message.chat.type in [enums.ChatType.GROUP, enums.ChatType.SUPERGROUP]:
@@ -27,7 +26,7 @@ async def start(client, message):
                     InlineKeyboardButton('⤬ Aᴅᴅ Mᴇ Tᴏ Yᴏᴜʀ Gʀᴏᴜᴘ ⤬', url=f'http://t.me/{temp.U_NAME}?startgroup=true')
                 ],[
                     InlineKeyboardButton('✇ Uᴘᴅᴀᴛᴇs', url=CHNL_LNK),
-                    InlineKeyboardButton('⌬ Mᴏᴠɪᴇ Gʀᴏᴜᴘ', url=MJ_GL)  
+                    InlineKeyboardButton('⌬ Mᴏᴠɪᴇ Gʀᴏᴜᴘ', url=GRP_LNK)  
                   ],[
                     InlineKeyboardButton('☠ Cʟᴏꜱᴇ Mᴇɴᴜ​', callback_data='close_data')
                 ]]
@@ -55,7 +54,7 @@ async def start(client, message):
                     InlineKeyboardButton('⤬ Aᴅᴅ Mᴇ Tᴏ Yᴏᴜʀ Gʀᴏᴜᴘ ⤬', url=f'http://t.me/{temp.U_NAME}?startgroup=true')
                 ],[
                     InlineKeyboardButton('♲︎︎︎ Uᴘᴅᴀᴛᴇs', url=CHNL_LNK),
-                    InlineKeyboardButton('⌬ Mᴏᴠɪᴇ Gʀᴏᴜᴘ', url=MJ_GL)
+                    InlineKeyboardButton('⌬ Mᴏᴠɪᴇ Gʀᴏᴜᴘ', url=GRP_LNK)
                 ],[
                     InlineKeyboardButton('〄 Hᴇʟᴘ', callback_data='help'),
                     InlineKeyboardButton('⍟ Aʙᴏᴜᴛ', callback_data='about')
@@ -107,7 +106,7 @@ async def start(client, message):
                     InlineKeyboardButton('⤬ Aᴅᴅ Mᴇ Tᴏ Yᴏᴜʀ Gʀᴏᴜᴘ ⤬', url=f'http://t.me/{temp.U_NAME}?startgroup=true')
                 ],[
                     InlineKeyboardButton('♲︎︎︎ Uᴘᴅᴀᴛᴇs', url=CHNL_LNK),
-                    InlineKeyboardButton('⌬ Mᴏᴠɪᴇ Gʀᴏᴜᴘ', url=MJ_GL)
+                    InlineKeyboardButton('⌬ Mᴏᴠɪᴇ Gʀᴏᴜᴘ', url=GRP_LNK)
                 ],[
                     InlineKeyboardButton('〄 Hᴇʟᴘ', callback_data='help'),
                     InlineKeyboardButton('⍟ Aʙᴏᴜᴛ', callback_data='about')
@@ -164,7 +163,7 @@ async def start(client, message):
                     reply_markup=InlineKeyboardMarkup(
                         [
                             [
-                                InlineKeyboardButton('⌬ Mᴏᴠɪᴇ Gʀᴏᴜᴘ', url=MJ_GL),
+                                InlineKeyboardButton('⌬ Mᴏᴠɪᴇ Gʀᴏᴜᴘ', url=GRP_LNK),
                                 InlineKeyboardButton('♲︎︎︎ Uᴘᴅᴀᴛᴇs', url=CHNL_LNK)
                             ],[
                                 InlineKeyboardButton('🚀 Fast Download / Watch Online🖥️', callback_data=f'generate_stream_link:{file_id}') #Don't change anything without contacting me @LazyDeveloperr
@@ -183,7 +182,7 @@ async def start(client, message):
                     reply_markup=InlineKeyboardMarkup(
                         [
                          [
-                          InlineKeyboardButton('⌬ Mᴏᴠɪᴇ Gʀᴏᴜᴘ', url=MJ_GL),
+                          InlineKeyboardButton('⌬ Mᴏᴠɪᴇ Gʀᴏᴜᴘ', url=GRP_LNK),
                           InlineKeyboardButton('Uᴘᴅᴀᴛᴇs Cʜᴀɴɴᴇʟ', url=CHNL_LNK)
                        ],[ 
                             InlineKeyboardButton('🚀 Fast Download / Watch Online🖥️', callback_data=f'generate_stream_link:{file_id}') #Don't change anything without contacting me @LazyDeveloperr
@@ -228,7 +227,7 @@ async def start(client, message):
                         reply_markup=InlineKeyboardMarkup(
                         [
                          [
-                          InlineKeyboardButton('⌬ Mᴏᴠɪᴇ Gʀᴏᴜᴘ', url=MJ_GL),
+                          InlineKeyboardButton('⌬ Mᴏᴠɪᴇ Gʀᴏᴜᴘ', url=GRP_LNK),
                           InlineKeyboardButton('Uᴘᴅᴀᴛᴇs Cʜᴀɴɴᴇʟ', url=CHNL_LNK)
                        ],[ 
                             InlineKeyboardButton('🚀 Fast Download / Watch Online🖥️', callback_data=f'generate_stream_link:{file_id}') #Don't change anything without contacting me @LazyDeveloperr
@@ -241,7 +240,7 @@ async def start(client, message):
                                   reply_markup=InlineKeyboardMarkup(
                         [
                          [
-                          InlineKeyboardButton('⌬ Mᴏᴠɪᴇ Gʀᴏᴜᴘ', url=MJ_GL),
+                          InlineKeyboardButton('⌬ Mᴏᴠɪᴇ Gʀᴏᴜᴘ', url=GRP_LNK),
                           InlineKeyboardButton('Uᴘᴅᴀᴛᴇs Cʜᴀɴɴᴇʟ', url=CHNL_LNK)
                        ],[ 
                             InlineKeyboardButton('🚀 Fast Download / Watch Online🖥️', callback_data=f'generate_stream_link:{file_id}') #Don't change anything without contacting me @LazyDeveloperr
@@ -361,7 +360,7 @@ async def start(client, message):
                 protect_content=True if pre == 'filep' else False,
                 reply_markup=InlineKeyboardMarkup(
                     [[
-                      InlineKeyboardButton('⌬ Mᴏᴠɪᴇ Gʀᴏᴜᴘ', url=MJ_GL),
+                      InlineKeyboardButton('⌬ Mᴏᴠɪᴇ Gʀᴏᴜᴘ', url=GRP_LNK),
                       InlineKeyboardButton('Uᴘᴅᴀᴛᴇs Cʜᴀɴɴᴇʟ', url=CHNL_LNK)
                    ],[
                         InlineKeyboardButton('🚀 Fast Download / Watch Online🖥️', callback_data=f'generate_stream_link:{file_id}') #Don't change anything without contacting me @LazyDeveloperr
@@ -422,7 +421,7 @@ async def start(client, message):
                 protect_content=True if pre == 'filep' else False,
                 reply_markup=InlineKeyboardMarkup(
                     [[
-                      InlineKeyboardButton('⌬ Mᴏᴠɪᴇ Gʀᴏᴜᴘ', url=MJ_GL),
+                      InlineKeyboardButton('⌬ Mᴏᴠɪᴇ Gʀᴏᴜᴘ', url=GRP_LNK),
                       InlineKeyboardButton('Uᴘᴅᴀᴛᴇs Cʜᴀɴɴᴇʟ', url=CHNL_LNK)
                    ],[
                         InlineKeyboardButton('🚀 Fast Download / Watch Online🖥️', callback_data=f'generate_stream_link:{file_id}') #Don't change anything without contacting me @LazyDeveloperr
@@ -481,7 +480,7 @@ async def start(client, message):
         reply_markup=InlineKeyboardMarkup(
             [
              [
-              InlineKeyboardButton('⌬ Mᴏᴠɪᴇ Gʀᴏᴜᴘ', url=MJ_GL),
+              InlineKeyboardButton('⌬ Mᴏᴠɪᴇ Gʀᴏᴜᴘ', url=GRP_LNK),
               InlineKeyboardButton('Uᴘᴅᴀᴛᴇs Cʜᴀɴɴᴇʟ', url=CHNL_LNK)
            ],[
               InlineKeyboardButton('🚀 Fast Download / Watch Online🖥️', callback_data=f'generate_stream_link:{file_id}') #Don't change anything without contacting me @LazyDeveloperr
@@ -665,16 +664,16 @@ async def settings(client, message):
 
     if settings is not None:
         buttons = [
-            #[
-                #InlineKeyboardButton(
-                    #'Rᴇsᴜʟᴛ Pᴀɢᴇ',
-                    #callback_data=f'setgs#button#{settings["button"]}#{grp_id}',
-                #),
-                #InlineKeyboardButton(
-                    #'Bᴜᴛᴛᴏɴ' if settings["button"] else 'Tᴇxᴛ',
-                    #callback_data=f'setgs#button#{settings["button"]}#{grp_id}',
-                #),
-            #],
+            [
+                InlineKeyboardButton(
+                    'Rᴇsᴜʟᴛ Pᴀɢᴇ',
+                    callback_data=f'setgs#button#{settings["button"]}#{grp_id}',
+                ),
+                InlineKeyboardButton(
+                    'Bᴜᴛᴛᴏɴ' if settings["button"] else 'Tᴇxᴛ',
+                    callback_data=f'setgs#button#{settings["button"]}#{grp_id}',
+                ),
+            ],
             [
                 InlineKeyboardButton(
                     'Fɪʟᴇ Sᴇɴᴅ Mᴏᴅᴇ',
@@ -691,7 +690,7 @@ async def settings(client, message):
                     callback_data=f'setgs#file_secure#{settings["file_secure"]}#{grp_id}',
                 ),
                 InlineKeyboardButton(
-                    '✔ Oɴ' if settings["file_secure"] else '✘ Oғғ',
+                    '✅ Oɴ' if settings["file_secure"] else '❌ Oғғ',
                     callback_data=f'setgs#file_secure#{settings["file_secure"]}#{grp_id}',
                 ),
             ],
@@ -701,7 +700,7 @@ async def settings(client, message):
                     callback_data=f'setgs#imdb#{settings["imdb"]}#{grp_id}',
                 ),
                 InlineKeyboardButton(
-                    '✔ Oɴ' if settings["imdb"] else '✘ Oғғ',
+                    '✅ Oɴ' if settings["imdb"] else '❌ Oғғ',
                     callback_data=f'setgs#imdb#{settings["imdb"]}#{grp_id}',
                 ),
             ],
@@ -711,7 +710,7 @@ async def settings(client, message):
                     callback_data=f'setgs#spell_check#{settings["spell_check"]}#{grp_id}',
                 ),
                 InlineKeyboardButton(
-                    '✔ Oɴ' if settings["spell_check"] else '✘ Oғғ',
+                    '✅ Oɴ' if settings["spell_check"] else '❌ Oғғ',
                     callback_data=f'setgs#spell_check#{settings["spell_check"]}#{grp_id}',
                 ),
             ],
@@ -721,7 +720,7 @@ async def settings(client, message):
                     callback_data=f'setgs#welcome#{settings["welcome"]}#{grp_id}',
                 ),
                 InlineKeyboardButton(
-                    '✔ Oɴ' if settings["welcome"] else '✘ Oғғ',
+                    '✅ Oɴ' if settings["welcome"] else '❌ Oғғ',
                     callback_data=f'setgs#welcome#{settings["welcome"]}#{grp_id}',
                 ),
             ],
@@ -731,7 +730,7 @@ async def settings(client, message):
                     callback_data=f'setgs#auto_delete#{settings["auto_delete"]}#{grp_id}',
                 ),
                 InlineKeyboardButton(
-                    '10 Mɪɴs' if settings["auto_delete"] else '✘ Oғғ',
+                    '10 Mɪɴs' if settings["auto_delete"] else '❌ Oғғ',
                     callback_data=f'setgs#auto_delete#{settings["auto_delete"]}#{grp_id}',
                 ),
             ],
@@ -741,7 +740,7 @@ async def settings(client, message):
                     callback_data=f'setgs#auto_ffilter#{settings["auto_ffilter"]}#{grp_id}',
                 ),
                 InlineKeyboardButton(
-                    '✔ Oɴ' if settings["auto_ffilter"] else '✘ Oғғ',
+                    '✅ Oɴ' if settings["auto_ffilter"] else '❌ Oғғ',
                     callback_data=f'setgs#auto_ffilter#{settings["auto_ffilter"]}#{grp_id}',
                 ),
             ],
@@ -761,7 +760,7 @@ async def settings(client, message):
                     callback_data=f'setgs#is_shortlink#{settings["is_shortlink"]}#{grp_id}',
                 ),
                 InlineKeyboardButton(
-                    '✔ Oɴ' if settings["is_shortlink"] else '✘ Oғғ',
+                    '✅ Oɴ' if settings["is_shortlink"] else '❌ Oғғ',
                     callback_data=f'setgs#is_shortlink#{settings["is_shortlink"]}#{grp_id}',
                 ),
             ],
@@ -783,7 +782,7 @@ async def settings(client, message):
             )
         else:
             await message.reply_text(
-                text=f"<b>Cʜᴀɴɢᴇ Yᴏᴜʀ Sᴇᴛᴛɪɴɢs Fᴏʀ {title} As Yᴏᴜʀ Wɪsʜ ⚙</b>",
+                text=f'<b>Cʜᴀɴɢᴇ Yᴏᴜʀ Sᴇᴛᴛɪɴɢs Fᴏʀ "{title}" As Yᴏᴜʀ Wɪsʜ ⚙</b>',
                 reply_markup=reply_markup,
                 disable_web_page_preview=True,
                 parse_mode=enums.ParseMode.HTML,
