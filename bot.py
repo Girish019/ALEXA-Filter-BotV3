@@ -39,7 +39,7 @@ import asyncio
 from pyrogram import idle
 from ALEXA import AMBot
 from util.keepalive import ping_server
-from AMbot.clients import initialize_clients
+from ALEXA.clients import initialize_clients
 
 
 ppath = "plugins/*.py"
