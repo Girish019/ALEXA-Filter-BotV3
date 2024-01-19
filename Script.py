@@ -189,7 +189,7 @@ Tɪᴘ: Sᴇʟᴇᴄᴛ "Lᴀɴɢᴜᴀɢᴇs" ᴏʀ "Sᴇᴀsᴏɴs" Bᴜᴛᴛ
 
 𝗤𝘂𝗮𝗿𝘆 <b>: {}</b>"""
 
-    CAPTION = """<b>📂Fɪʟᴇɴᴀᴍᴇ : {file_name} \nSize ⚙️: {file_size}</b>""" 
+    CAPTION = """<b>📁ғɪʟᴇ ɴᴀᴍᴇ</b> : <code>{file_name}</code> \n<b>\nSize ⚙️: {file_size} \n\n🎬Jᴏɪɴ ᴜs : [𝐀𝐋𝐄𝐗𝐀 𝐌𝐎𝐕𝐈𝐄𝐒](https://t.me/alexa_movies)\n</b>""" 
 
     IMDB_TEMPLATE_TXT = """
 <b>Query: {qurey}
