@@ -32,6 +32,7 @@ SPELL_IMG = environ.get("SPELL_IMG", "https://graph.org/file/084bb003de163373b88
 ADMINS = [int(admin) if id_pattern.search(admin) else admin for admin in environ.get('ADMINS', '5636224141 1284476297 1147676731 1269341939').split()]
 YT_ADMINS = [int(admin) if id_pattern.search(admin) else admin for admin in environ.get('YT_ADMINS', '5636224141 1284476297 1269341939 1147676731').split()]
 CHANNELS = [int(ch) if id_pattern.search(ch) else ch for ch in environ.get('CHANNELS', '-1001809359257 -1001622331580').split()]
+PREDVD_CHANNEL = int(environ.get("PREDVD_CHANNEL", "-1001758218450"))
 auth_users = [int(user) if id_pattern.search(user) else user for user in environ.get('AUTH_USERS', '5636224141 1284476297 1147676731 1269341939').split()]
 AUTH_USERS = (auth_users + ADMINS) if auth_users else []
 PREMIUM = [int(user) if id_pattern.search(user) else user for user in environ.get('PREMIUM', "5636224141 1284476297 1147676731 1269341939").split()]
@@ -44,7 +45,7 @@ reqst_channel = environ.get('REQST_CHANNEL_ID', '-1002016821222')
 REQST_CHANNEL = int(reqst_channel) if reqst_channel and id_pattern.search(reqst_channel) else None
 SUPPORT_CHAT_ID = int(support_chat_id) if support_chat_id and id_pattern.search(support_chat_id) else None
 NO_RESULTS_MSG = bool(environ.get("NO_RESULTS_MSG", True))
-OWNER = environ.get("OWNER", "5636224141")
+OWNER = int(environ.get("OWNER", "5636224141"))
 # MongoDB information
 DATABASE_URI = environ.get('DATABASE_URI', "mongodb+srv://cheesy:cheesy.8697@cluster0.kjg8cfb.mongodb.net/?retryWrites=true&w=majority")
 DATABASE_NAME = environ.get('DATABASE_NAME', "Cluster0")
