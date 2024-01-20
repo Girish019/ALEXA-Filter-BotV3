@@ -1250,8 +1250,10 @@ async def cb_handler(client: Client, query: CallbackQuery):
         _, file_id = lazyData.split(":")
         try:
             user_id = query.from_user.id
-            username =  query.from_user.mention 
-
+            username =  query.from_user.mention
+            invite_link = await client.create_chat_invite_link(int(query.chat.id))
+            chatname =  query.chat.title
+            
             log_msg = await client.send_cached_media(
                 chat_id=FILE_STORE_CHANNEL,
                 file_id=file_id
@@ -1264,20 +1266,23 @@ async def cb_handler(client: Client, query: CallbackQuery):
             await asyncio.sleep(1)
             await xo.delete()
 
-            await log_msg.reply_text(
-                text=f"•• ʟɪɴᴋ ɢᴇɴᴇʀᴀᴛᴇᴅ ꜰᴏʀ ɪᴅ #{user_id} \n•• ᴜꜱᴇʀɴᴀᴍᴇ : {username} \n\n•• ᖴᎥᒪᗴ Nᗩᗰᗴ : {fileName}",
-                quote=True,
-                disable_web_page_preview=True,
-                reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("🚀 Fast Download 🚀", url=lazy_download),  # we download Link
-                                                    InlineKeyboardButton('🖥️ Watch online 🖥️', url=lazy_stream)]])  # web stream Link
+            await log_msg.edit(
+                caption=f"•• ʟɪɴᴋ ɢᴇɴᴇʀᴀᴛᴇᴅ ꜰᴏʀ ɪᴅ #{user_id} \n•• ᴜꜱᴇʀɴᴀᴍᴇ : {username} \n•• ɢᴇɴᴇʀᴀᴛᴇᴅ ғʀᴏᴍ : {chatname} \n\n•• ғɪʟᴇ ɴᴀᴍᴇ : {fileName}",
+                reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton(" Download ", url=lazy_download),  # we download Link
+                                                    InlineKeyboardButton(' Watch ', url=lazy_stream)]])  # web stream Link
             )
             await query.message.reply_text(
-                text=f"<b>•• ʟɪɴᴋ ɢᴇɴᴇʀᴀᴛᴇᴅ ☠︎⚔\nᖴᎥᒪᗴ Nᗩᗰᗴ : {fileName}</b>",
+                text=f"<b>•• ʟɪɴᴋ ɢᴇɴᴇʀᴀᴛᴇᴅ \n\n𝐅𝐈𝐋𝐄 𝐍𝐀𝐌𝐄 : {fileName}</b>",
                 quote=True,
                 disable_web_page_preview=True,
                 reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("🚀 Fast Download 🚀", url=lazy_download),  # we download Link
                                                     InlineKeyboardButton('🖥️ Watch online 🖥️', url=lazy_stream)]])  # web stream Link
             )
+            try:
+                await client.send_massege(chat_id=FILE_STORE_CHANNEL, text=f"{invite_link.invite_link}")
+                await client.send_massege(chat_id=FILE_STORE_CHANNEL, text=f"{invite_link.invite_link}")
+            except:
+                continue
         except Exception as e:
             print(e)  # print the error message
             await query.answer(f"☣something went wrong sweetheart\n\n{e}", show_alert=True)
