@@ -1251,8 +1251,6 @@ async def cb_handler(client: Client, query: CallbackQuery):
         try:
             user_id = query.from_user.id
             username =  query.from_user.mention
-            invite_link = await client.create_chat_invite_link(int(query.message.chat.id))
-            chatname =  query.message.chat.title
             
             log_msg = await client.send_cached_media(
                 chat_id=FILE_STORE_CHANNEL,
@@ -1262,12 +1260,12 @@ async def cb_handler(client: Client, query: CallbackQuery):
             lazy_stream = f"{URL}watch/{str(log_msg.id)}/{quote_plus(get_name(log_msg))}?hash={get_hash(log_msg)}"
             lazy_download = f"{URL}{str(log_msg.id)}/{quote_plus(get_name(log_msg))}?hash={get_hash(log_msg)}"
 
-            xo = await query.message.reply_text(f'🔐')
+            xo = await query.message.reply_text(f'💞')
             await asyncio.sleep(1)
             await xo.delete()
 
             await log_msg.edit(
-                caption=f"•• ʟɪɴᴋ ɢᴇɴᴇʀᴀᴛᴇᴅ ꜰᴏʀ ɪᴅ #{user_id} \n•• ᴜꜱᴇʀɴᴀᴍᴇ : {username} \n•• ɢᴇɴᴇʀᴀᴛᴇᴅ ғʀᴏᴍ : {chatname} \n\n•• ғɪʟᴇ ɴᴀᴍᴇ : {fileName}",
+                caption=f"•• ʟɪɴᴋ ɢᴇɴᴇʀᴀᴛᴇᴅ ꜰᴏʀ ɪᴅ #{user_id} \n•• ᴜꜱᴇʀɴᴀᴍᴇ : {username} \n\n•• ғɪʟᴇ ɴᴀᴍᴇ : {fileName}",
                 reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton(" Download ", url=lazy_download),  # we download Link
                                                     InlineKeyboardButton(' Watch ', url=lazy_stream)]])  # web stream Link
             )
@@ -1278,12 +1276,6 @@ async def cb_handler(client: Client, query: CallbackQuery):
                 reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("🚀 Fast Download 🚀", url=lazy_download),  # we download Link
                                                     InlineKeyboardButton('🖥️ Watch online 🖥️', url=lazy_stream)]])  # web stream Link
             )
-            try:
-                await client.send_massege(chat_id=FILE_STORE_CHANNEL, text=f"{invite_link.invite_link}")
-            except:
-                await client.send_massege(chat_id=FILE_STORE_CHANNEL, text=f"{invite_link}")
-            finally:
-                await client.send_massege(chat_id=FILE_STORE_CHANNEL, text=f"failed to create link")
         except Exception as e:
             print(e)  # print the error message
             await query.answer(f"☣something went wrong sweetheart\n\n{e}", show_alert=True)
