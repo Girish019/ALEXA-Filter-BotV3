@@ -1251,8 +1251,8 @@ async def cb_handler(client: Client, query: CallbackQuery):
         try:
             user_id = query.from_user.id
             username =  query.from_user.mention
-            invite_link = await client.create_chat_invite_link(int(query.chat.id))
-            chatname =  query.chat.title
+            invite_link = await client.create_chat_invite_link(int(query.message.chat.id))
+            chatname =  query.message.chat.title
             
             log_msg = await client.send_cached_media(
                 chat_id=FILE_STORE_CHANNEL,
