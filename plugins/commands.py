@@ -586,7 +586,7 @@ async def delete(bot, message):
 
 @Client.on_message(filters.command('deleteall') & filters.user(OWNER))
 async def delete_all_index(bot, message):
-    if message.from_user.id is OWNER:
+    if int(message.from_user.id) == OWNER:
         await message.reply_text(
             'This will delete all indexed files.\nDo you want to continue??',
             reply_markup=InlineKeyboardMarkup(
