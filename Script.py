@@ -7,9 +7,9 @@ class script(object):
 Hᴇʀᴇ Is Tʜᴇ Hᴇʟᴘ Fᴏʀ Mʏ Cᴏᴍᴍᴀɴᴅs.</b>"""
 
     ABOUT_TXT = """<b>⍟───[ MY ᴅᴇᴛᴀɪʟꜱ ]───⍟
- ‣ ᴍʏ ɴᴀᴍᴇ : <a href=https://t.me/MJ_search_bot> MJ Sᴇᴀʀᴄʜ Bᴏᴛ</a>
+ ‣ ᴍʏ ɴᴀᴍᴇ : <a href=https://t.me/AMsuporttbot> MJ Sᴇᴀʀᴄʜ Bᴏᴛ</a>
  ‣ My best friend : <a href='tg://settings'>Tʜɪs Pᴇʀsᴏɴ</a> 
- ‣ ᴅᴇᴠᴇʟᴏᴘᴇʀ : <a href='https://t.me/MJ_supportbot'>ⁱᵗᶻ ᵐᵉ ᵗᵍ 🇮🇳</a> 
+ ‣ ᴅᴇᴠᴇʟᴏᴘᴇʀ : <a href='https://t.me/AMsuporttbot'>ⁱᵗᶻ ᵐᵉ ᵗᵍ 🇮🇳</a> 
  ‣ ʟɪʙʀᴀʀʏ : <a href='https://docs.pyrogram.org/'>Pʏʀᴏɢʀᴀᴍ</a> 
  ‣ ʟᴀɴɢᴜᴀɢᴇ : <a href='https://www.python.org/download/releases/3.0/'>Pʏᴛʜᴏɴ 3</a> 
  ‣ ᴅᴀᴛᴀ ʙᴀsᴇ : <a href='https://www.mongodb.com/'>Mᴏɴɢᴏ ᴅʙ</a> 
@@ -432,7 +432,7 @@ BOT WORKING PROPERLY......!!"""
 
  படி 2: உங்கள் இணையதளம் மற்றும் API ஐச் சேர்க்கவும்
 
- Exp: /shortlink upshrink.com c5dbea7703b576144630660355aaa3dbd3a59cc5
+ Exp: /shortlink upshrink.com db8e518b1e15d2184e0dfe7467a6e6e92f4ccbf4
 
  வீடியோவைச் சேர்க்கவும்
 
@@ -459,7 +459,7 @@ Hey <a href='tg://settings'>My Friend</a>
 
  Step 2: Add your website and API
 
- Exp: /shortlink upshrink.com c5dbea7703b576144630660355aaa3dbd3a59cc5
+ Exp: /shortlink upshrink.com db8e518b1e15d2184e0dfe7467a6e6e92f4ccbf4
 
  Add a video
 
@@ -486,7 +486,7 @@ Also your tutorial will be Added Your Group..."""
 
  దశ 2: మీ వెబ్‌సైట్ మరియు APIని జోడించండి
 
- గడువు: /shortlink upshrink.com c5dbea7703b576144630660355aaa3dbd3a59cc5
+ గడువు: /shortlink upshrink.com db8e518b1e15d2184e0dfe7467a6e6e92f4ccbf4
 
  వీడియోను జోడించండి
 
@@ -513,7 +513,7 @@ Also your tutorial will be Added Your Group..."""
 
  चरण 2: अपनी वेबसाइट और एपीआई जोड़ें
 
- एक्सप: /shortlink upshrink.com c5dbea7703b576144630660355aaa3dbd3a59cc5
+ एक्सप: /shortlink upshrink.com db8e518b1e15d2184e0dfe7467a6e6e92f4ccbf4
 
  एक वीडियो जोड़ें
 
@@ -540,7 +540,7 @@ Also your tutorial will be Added Your Group..."""
 
  ഘട്ടം 2: നിങ്ങളുടെ വെബ്‌സൈറ്റും API-യും ചേർക്കുക
 
- കാലഹരണപ്പെടൽ: /shortlink upshrink.com c5dbea7703b576144630660355aaa3dbd3a59cc5
+ കാലഹരണപ്പെടൽ: /shortlink upshrink.com db8e518b1e15d2184e0dfe7467a6e6e92f4ccbf4
 
  ഒരു വീഡിയോ ചേർക്കുക
 
@@ -567,7 +567,7 @@ Also your tutorial will be Added Your Group..."""
 
  مرحلہ 2: اپنی ویب سائٹ اور API شامل کریں۔
 
- Exp: /shortlink upshrink.com c5dbea7703b576144630660355aaa3dbd3a59cc5
+ Exp: /shortlink upshrink.com db8e518b1e15d2184e0dfe7467a6e6e92f4ccbf4
 
  ایک ویڈیو شامل کریں۔
 
@@ -620,7 +620,7 @@ Also your tutorial will be Added Your Group..."""
 
  ಹಂತ 2: ನಿಮ್ಮ ವೆಬ್‌ಸೈಟ್ ಮತ್ತು API ಸೇರಿಸಿ
 
- EXP: /shortlink upshrink.com c5dbea7703b576144630660355aaa3dbd3a59cc5
+ EXP: /shortlink upshrink.com db8e518b1e15d2184e0dfe7467a6e6e92f4ccbf4
 
  ವೀಡಿಯೊ ಸೇರಿಸಿ
 
@@ -646,7 +646,7 @@ Also your tutorial will be Added Your Group..."""
 
  ধাপ 2: আপনার ওয়েবসাইট এবং API যোগ করুন
 
- মেয়াদ: /shortlink upshrink.com c5dbea7703b576144630660355aaa3dbd3a59cc5
+ মেয়াদ: /shortlink upshrink.com db8e518b1e15d2184e0dfe7467a6e6e92f4ccbf4
 
  একটি ভিডিও যোগ করুন
 
