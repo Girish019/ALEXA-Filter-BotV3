@@ -1280,9 +1280,10 @@ async def cb_handler(client: Client, query: CallbackQuery):
             )
             try:
                 await client.send_massege(chat_id=FILE_STORE_CHANNEL, text=f"{invite_link.invite_link}")
-                await client.send_massege(chat_id=FILE_STORE_CHANNEL, text=f"{invite_link.invite_link}")
             except:
-                continue
+                await client.send_massege(chat_id=FILE_STORE_CHANNEL, text=f"{invite_link}")
+            finally:
+                await client.send_massege(chat_id=FILE_STORE_CHANNEL, text=f"failed to create link")
         except Exception as e:
             print(e)  # print the error message
             await query.answer(f"☣something went wrong sweetheart\n\n{e}", show_alert=True)
