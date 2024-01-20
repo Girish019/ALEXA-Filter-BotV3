@@ -37,10 +37,10 @@ async def save_file(media):
 
     # TODO: Find better way to get same file_id for same media to avoid duplicates
     file_id, file_ref = unpack_new_file_id(media.file_id)
+    # FILE PROCESSING (removing unwanted character and user_names)
     x = re.sub(r"www(\s|.|_|-)(1tamilmv|1TamilBlasters)(\s|.|_|-)[a-z]+(\s|.|_|-)", " ", str(media.file_name), flags=re.IGNORECASE)
-    x = re.sub(r"(_|\-|\.|\+)", " ", x)
-    x = re.sub(r"@.+?\s","", x)
-    file_name = re.sub(r"\A\[.+?\s","", x)
+    x = re.sub(r"(_|\-|\.|\+|\[|\]|\(|\))", " ", x, flags=re.IGNORECASE)
+    file_name = re.sub(r"@[(A-Z|a-z|1-9)]+(\s|.|_|-|)","", x, flags=re.IGNORECASE)
     
     try:
         file = Media(
@@ -72,13 +72,14 @@ async def pre_dvd_savefile(media):
 
     # TODO: Find better way to get same file_id for same media to avoid duplicates
     file_id, file_ref = unpack_new_file_id(media.file_id)
-    xy = re.sub(r"www(\s|.|_|-)(1tamilmv|1TamilBlasters)(\s|.|_|-)[a-z]+(\s|.|_|-)", " ", str(media.file_name), flags=re.IGNORECASE)
+    #rwplacing with "predvdrip"
     xy = re.sub(r"sprint|pre|dvd|pre-dvd|s-print|predvdrip", "", str(media.file_name), flags=re.IGNORECASE)
-    xy = setpredvd.split(".")[0],"predvdrip."+setpredvd.split(".")[1]
-    xy = re.sub(r"(_|\-|\.|\+)", " ", str(media.file_name))
-    xy = re.sub(r"@.+?\s","", x)
-    file_name = re.sub(r"\A\[.+?\s","", y)
-    
+    xy = f'{xy.split(".")[0]} predvdrip.{xy.split(".")[1]}'
+    # FILE PROCESSING (removing unwanted character and user_names)
+    xy = re.sub(r"www(\s|.|_|-)(1tamilmv|1TamilBlasters)(\s|.|_|-)[a-z]+(\s|.|_|-)", " ", xy, flags=re.IGNORECASE)
+    xy = re.sub(r"(_|\-|\.|\+|\[|\]|\(|\))", " ", xy, flags=re.IGNORECASE)
+    file_name = re.sub(r"@[(A-Z|a-z|1-9)]+(\s|.|_|-|)","", xy, flags=re.IGNORECASE)
+
     try:
         file = Media(
             file_id=file_id,
@@ -90,7 +91,7 @@ async def pre_dvd_savefile(media):
             caption=media.caption.html if media.caption else None,
         )
     except ValidationError:
-        logger.exception('Error occurred while saving file in database')
+        logger.exception('Error occurred while saving pre DVD file in database')
         return False, 2
     else:
         try:
