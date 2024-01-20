@@ -60,12 +60,14 @@ async def give_filter(client, message):
                 grpid = await active_connection(str(message.from_user.id))
                 await save_group_settings(grpid, 'auto_ffilter', True)
                 settings = await get_settings(message.chat.id)
-                if settings['auto_ffilter']:
-                    await auto_filter(client, message)
-                else:
+                try:
+                    if settings['auto_ffilter']:
+                        await auto_filter(client, message)
+                except:
                     button = [[InlineKeyboardButton("ᴄᴏɴᴛᴀᴄᴛ ᴀᴅᴍɪɴ", url=f"https://t.me/{SUPPORT_CHAT}")]]
-                    await message.reply_text("<b>sᴏᴍᴛʜɪɴɢ ᴡʀᴏɴɢ ᴘʟᴇᴀsᴇ ᴄᴏɴᴛᴇᴄᴛ ɢʀᴏᴜᴘ ᴀᴅᴍɪɴ ᴏʀ \n ᴅɪsᴄᴜss ᴛʜᴇ ǫᴜɪʀʏ ᴡɪᴛʜ ᴍʏ ᴀᴅᴍɪɴ </b>", reply_markup=InlineKeyboardMarkup(button))
-
+                    rm = await message.reply_text("<b>sᴏᴍᴛʜɪɴɢ ᴡʀᴏɴɢ ᴘʟᴇᴀsᴇ ᴄᴏɴᴛᴇᴄᴛ ɢʀᴏᴜᴘ ᴀᴅᴍɪɴ ᴏʀ ᴄʜᴇᴄᴋ ɪғ ɪ ᴀᴍ ᴀᴅɪᴍɪɴ ɪɴ ᴛʜɪs ɢʀᴏᴜᴘ \n\n ᴅɪsᴄᴜss ᴛʜᴇ ǫᴜɪʀʏ ᴡɪᴛʜ ᴍʏ ᴀᴅᴍɪɴ </b>", reply_markup=InlineKeyboardMarkup(button))
+                    await asyncio.sleep(60)
+                    await rm.delete()
     else: #a better logic to avoid repeated lines of code in auto_filter function
         search = message.text
         temp_files, temp_offset, total_results = await get_search_results(chat_id=message.chat.id, query=search.lower(), offset=0, filter=True)
