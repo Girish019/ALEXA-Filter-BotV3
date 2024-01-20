@@ -37,8 +37,46 @@ async def save_file(media):
 
     # TODO: Find better way to get same file_id for same media to avoid duplicates
     file_id, file_ref = unpack_new_file_id(media.file_id)
-    x = re.sub(r"(_|\-|\.|\+)", " ", str(media.file_name))
-    y = re.sub(r"@.+?\s","", x)
+    x = re.sub(r"www(\s|.|_|-)(1tamilmv|1TamilBlasters)(\s|.|_|-)[a-z]+(\s|.|_|-)", " ", str(media.file_name), flags=re.IGNORECASE)
+    x = re.sub(r"(_|\-|\.|\+)", " ", x)
+    x = re.sub(r"@.+?\s","", x)
+    file_name = re.sub(r"\A\[.+?\s","", x)
+    
+    try:
+        file = Media(
+            file_id=file_id,
+            file_ref=file_ref,
+            file_name=file_name,
+            file_size=media.file_size,
+            file_type=media.file_type,
+            mime_type=media.mime_type,
+            caption=media.caption.html if media.caption else None,
+        )
+    except ValidationError:
+        logger.exception('Error occurred while saving file in database')
+        return False, 2
+    else:
+        try:
+            await file.commit()
+        except DuplicateKeyError:      
+            logger.warning(
+                f'{getattr(media, "file_name", "NO_FILE")} is already saved in database'
+            )
+            return False, 0
+        else:
+            logger.info(f'{getattr(media, "file_name", "NO_FILE")} is saved to database')
+            return True, 1
+
+async def pre_dvd_savefile(media):
+    """Save pre DVD file in database"""
+
+    # TODO: Find better way to get same file_id for same media to avoid duplicates
+    file_id, file_ref = unpack_new_file_id(media.file_id)
+    xy = re.sub(r"www(\s|.|_|-)(1tamilmv|1TamilBlasters)(\s|.|_|-)[a-z]+(\s|.|_|-)", " ", str(media.file_name), flags=re.IGNORECASE)
+    xy = re.sub(r"sprint|pre|dvd|pre-dvd|s-print|predvdrip", "", str(media.file_name), flags=re.IGNORECASE)
+    xy = setpredvd.split(".")[0],"predvdrip."+setpredvd.split(".")[1]
+    xy = re.sub(r"(_|\-|\.|\+)", " ", str(media.file_name))
+    xy = re.sub(r"@.+?\s","", x)
     file_name = re.sub(r"\A\[.+?\s","", y)
     
     try:
