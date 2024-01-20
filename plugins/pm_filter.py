@@ -1264,7 +1264,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             await asyncio.sleep(1)
             await xo.delete()
 
-            await log_msg.edit(
+            await log_msg.edit_caption(
                 caption=f"•• ʟɪɴᴋ ɢᴇɴᴇʀᴀᴛᴇᴅ ꜰᴏʀ ɪᴅ #{user_id} \n•• ᴜꜱᴇʀɴᴀᴍᴇ : {username} \n\n•• ғɪʟᴇ ɴᴀᴍᴇ : {fileName}",
                 reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton(" Download ", url=lazy_download),  # we download Link
                                                     InlineKeyboardButton(' Watch ', url=lazy_stream)]])  # web stream Link
