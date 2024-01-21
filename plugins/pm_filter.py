@@ -244,8 +244,11 @@ async def next_page(bot, query):
 
 @Client.on_callback_query(filters.regex(r"^spol"))
 async def advantage_spoll_choker(bot, query):
+    rmsg = query.message
+    reqstmsg = rmsg.replay_to_massage
+    grp_name = reqstmsg.chat.title
     _, user, movie_ = query.data.split('#')
-    movies = SPELL_CHECK.get(query.message.reply_to_message.id)
+    movies = SPELL_CHECK.get(reqstmsg.id)
     if not movies:
         return await query.answer(script.OLD_ALRT_TXT.format(query.from_user.first_name), show_alert=True)
     if int(user) != 0 and query.from_user.id != int(user):
@@ -268,10 +271,16 @@ async def advantage_spoll_choker(bot, query):
                 reqstr1 = query.from_user.id if query.from_user else 0
                 reqstr = await bot.get_users(reqstr1)
                 if NO_RESULTS_MSG:
-                    await bot.send_message(chat_id=REQST_CHANNEL, text=(script.NORSLTS.format(reqstr.id, reqstr.mention, movie)))
-                k = await query.message.edit(script.MVE_NT_FND)
-                await asyncio.sleep(10)
+                    await bot.send_message(chat_id=REQST_CHANNEL, text=(script.NO_RSLTS.format(reqstr.id, reqstr.mention, movie, grp_name)))
+                button = [[InlineKeyboardButton("ᴄᴏɴᴛᴀᴄᴛ ᴀᴅᴍɪɴ", url=f"https://t.me/{SUPPORT_CHAT}")]]
+                k = await reqstmsg.reply_photo(
+                photo=RESLT_NOT_FND, 
+                caption=script.REST_NOTFUND_TXT.format(movie),
+                reply_markup=InlineKeyboardMarkup(button)
+                )
+                await asyncio.sleep(20)
                 await k.delete()
+                await reqstmsg.delete()
 
 #languages
 
@@ -1250,6 +1259,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
 
     elif lazyData.startswith("generate_stream_link"):
         _, file_id = lazyData.split(":")
+        rmsg = query.message
         try:
             user_id = query.from_user.id
             username =  query.from_user.mention
@@ -1267,11 +1277,11 @@ async def cb_handler(client: Client, query: CallbackQuery):
             await xo.delete()
 
             await log_msg.edit_caption(
-                caption=f"•• ʟɪɴᴋ ɢᴇɴᴇʀᴀᴛᴇᴅ ꜰᴏʀ ɪᴅ #{user_id} \n•• ᴜꜱᴇʀɴᴀᴍᴇ : {username} \n\n•• ғɪʟᴇ ɴᴀᴍᴇ : {fileName}",
+                caption=f"•• ʟɪɴᴋ ɢᴇɴᴇʀᴀᴛᴇᴅ ꜰᴏʀ ᴜꜱᴇʀɪᴅ : {user_id} \n•• ᴜꜱᴇʀɴᴀᴍᴇ : {username}\n\n•• ғɪʟᴇ ɴᴀᴍᴇ : {fileName}",
                 reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton(" Download ", url=lazy_download),  # we download Link
                                                     InlineKeyboardButton(' Watch ', url=lazy_stream)]])  # web stream Link
             )
-            rmsg = await query.message.reply_text(
+            rmsg = await rmsg.reply_text(
                         text=f"<b>•• ʟɪɴᴋ ɢᴇɴᴇʀᴀᴛᴇᴅ \n\n𝐅𝐈𝐋𝐄 𝐍𝐀𝐌𝐄 : {fileName}</b>",
                         quote=True,
                         disable_web_page_preview=True,
