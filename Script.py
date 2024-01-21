@@ -194,7 +194,18 @@ Tɪᴘ: Sᴇʟᴇᴄᴛ "Lᴀɴɢᴜᴀɢᴇs" ᴏʀ "Sᴇᴀsᴏɴs" Bᴜᴛᴛ
 𝗡𝗮𝗺𝗲 <b>: {}</b>
 
 𝗤𝘂𝗮𝗿𝘆 <b>: {}</b>"""
+    
+    NO_RSLTS = """ 
+★ #𝗡𝗼𝗥𝗲𝘀𝘂𝗹𝘁𝘀 ★
 
+𝗜𝗗 <b>:</b> <code>{}</code>
+
+𝗡𝗮𝗺𝗲 <b>: {}</b>
+ 
+𝗤𝘂𝗮𝗿𝘆 <b>:</b> <code>{}</code>
+
+𝙍𝙚𝙦𝙪𝙚𝙨𝙩 𝙂𝙧𝙤𝙪𝙥 <b>: {}</b> """
+    
     CAPTION = """<b>📁ғɪʟᴇ ɴᴀᴍᴇ</b> : <code>{file_name}</code> \n<b>\nSize ⚙️: {file_size} \n\n🎬Jᴏɪɴ ᴜs : [𝐀𝐋𝐄𝐗𝐀 𝐌𝐎𝐕𝐈𝐄𝐒](https://t.me/alexa_movies)\n</b>""" 
 
     IMDB_TEMPLATE_TXT = """
