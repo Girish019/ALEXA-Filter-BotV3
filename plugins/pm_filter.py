@@ -2423,12 +2423,6 @@ async def advantage_spell_chok(client, msg):
                 if settings['auto_delete']:
                     await asyncio.sleep(600)
                     await spell_check_del.delete()
-    except Exception as e:
-        await client.send_message(chat_id=REQST_CHANNEL, text=e)
-        await client.send_message(chat_id=REQST_CHANNEL, text=f"{msg.chat.title}")
-    finally:
-        return
-        
 
 async def manual_filters(client, message, text=False):
     settings = await get_settings(message.chat.id)
