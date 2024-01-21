@@ -2285,7 +2285,7 @@ async def advantage_spell_chok(client, msg):
                      ]
             if NO_RESULTS_MSG:
                 await client.send_message(chat_id=REQST_CHANNEL, text=(script.NORSLTS.format(reqstr.id, reqstr.mention, mv_rqst)))
-                await client.send_message(chat_id=REQST_CHANNEL, text=f"{message.chat.title}")
+                await client.send_message(chat_id=REQST_CHANNEL, text=f"{msg.chat.title}")
             k = await msg.reply_photo(
                 photo=SPELL_IMG, 
                 caption=script.I_CUDNT.format(mv_rqst),
@@ -2324,7 +2324,7 @@ async def advantage_spell_chok(client, msg):
                      ]
             if NO_RESULTS_MSG:
                 await client.send_message(chat_id=REQST_CHANNEL, text=(script.NORSLTS.format(reqstr.id, reqstr.mention, mv_rqst)))
-                await client.send_message(chat_id=REQST_CHANNEL, text=f"{message.chat.title}")
+                await client.send_message(chat_id=REQST_CHANNEL, text=f"{msg.chat.title}")
             k = await msg.reply_photo(
                 photo=SPELL_IMG, 
                 caption=script.I_CUDNT.format(mv_rqst),
@@ -2368,7 +2368,7 @@ async def advantage_spell_chok(client, msg):
                      ]
             if NO_RESULTS_MSG:
                 await client.send_message(chat_id=REQST_CHANNEL, text=(script.NORSLTS.format(reqstr.id, reqstr.mention, mv_rqst)))
-                await client.send_message(chat_id=REQST_CHANNEL, text=f"{message.chat.title}")
+                await client.send_message(chat_id=REQST_CHANNEL, text=f"{msg.chat.title}")
             k = await msg.reply_photo(
                 photo=SPELL_IMG, 
                 caption=script.I_CUDNT.format(mv_rqst),
@@ -2385,7 +2385,7 @@ async def advantage_spell_chok(client, msg):
                      ]
             if NO_RESULTS_MSG:
                 await client.send_message(chat_id=REQST_CHANNEL, text=(script.NORSLTS.format(reqstr.id, reqstr.mention, mv_rqst)))
-                await client.send_message(chat_id=REQST_CHANNEL, text=f"{message.chat.title}")
+                await client.send_message(chat_id=REQST_CHANNEL, text=f"{msg.chat.title}")
             k = await msg.reply_photo(
                 photo=SPELL_IMG, 
                 caption=script.I_CUDNT.format(mv_rqst),
@@ -2423,6 +2423,11 @@ async def advantage_spell_chok(client, msg):
                 if settings['auto_delete']:
                     await asyncio.sleep(600)
                     await spell_check_del.delete()
+    except Exceptoin as e:
+        await client.send_message(chat_id=REQST_CHANNEL, text=e)
+        await client.send_message(chat_id=REQST_CHANNEL, text=f"{msg.chat.title}")
+        
+
 
 
 async def manual_filters(client, message, text=False):
