@@ -2067,9 +2067,9 @@ async def auto_filter(client, msg, spoll=False):
             files, offset, total_results = await get_search_results(message.chat.id ,search, offset=0, filter=True)
             settings = await get_settings(message.chat.id)
             if not files:
+                await m.delete()
                 if settings["spell_check"]:
                     return await advantage_spell_chok(client, msg)
-                    await m.delete()
                 else:
                     if NO_RESULTS_MSG:
                         button = [[InlineKeyboardButton("ᴄᴏɴᴛᴀᴄᴛ ᴀᴅᴍɪɴ", url=f"https://t.me/{SUPPORT_CHAT}")]]
@@ -2275,11 +2275,12 @@ async def advantage_spell_chok(client, msg):
         gs_parsed = []
         if not g_s:
             reqst_gle = query.replace(" ", "+")
-            button = [[
-                       InlineKeyboardButton("Gᴏᴏɢʟᴇ", url=f"https://www.google.com/search?q={reqst_gle}")
-            ]]
+            button = [[InlineKeyboardButton("Gᴏᴏɢʟᴇ", url=f"https://www.google.com/search?q={reqst_gle}")],
+                     [InlineKeyboardButton("ᴄᴏɴᴛᴀᴄᴛ ᴀᴅᴍɪɴ", url=f"https://t.me/{SUPPORT_CHAT}")]
+                     ]
             if NO_RESULTS_MSG:
                 await client.send_message(chat_id=REQST_CHANNEL, text=(script.NORSLTS.format(reqstr.id, reqstr.mention, mv_rqst)))
+                await client.send_message(chat_id=REQST_CHANNEL, text=f"{message.chat.title}")
             k = await msg.reply_photo(
                 photo=SPELL_IMG, 
                 caption=script.I_CUDNT.format(mv_rqst),
@@ -2318,6 +2319,7 @@ async def advantage_spell_chok(client, msg):
                      ]
             if NO_RESULTS_MSG:
                 await client.send_message(chat_id=REQST_CHANNEL, text=(script.NORSLTS.format(reqstr.id, reqstr.mention, mv_rqst)))
+                await client.send_message(chat_id=REQST_CHANNEL, text=f"{message.chat.title}")
             k = await msg.reply_photo(
                 photo=SPELL_IMG, 
                 caption=script.I_CUDNT.format(mv_rqst),
@@ -2356,11 +2358,12 @@ async def advantage_spell_chok(client, msg):
         except Exception as e:
             logger.exception(e)
             reqst_gle = mv_rqst.replace(" ", "+")
-            button = [[
-                       InlineKeyboardButton("Gᴏᴏɢʟᴇ", url=f"https://www.google.com/search?q={reqst_gle}")
-            ]]
+            button = [[InlineKeyboardButton("Gᴏᴏɢʟᴇ", url=f"https://www.google.com/search?q={reqst_gle}")],
+                     [InlineKeyboardButton("ᴄᴏɴᴛᴀᴄᴛ ᴀᴅᴍɪɴ", url=f"https://t.me/{SUPPORT_CHAT}")]
+                     ]
             if NO_RESULTS_MSG:
                 await client.send_message(chat_id=REQST_CHANNEL, text=(script.NORSLTS.format(reqstr.id, reqstr.mention, mv_rqst)))
+                await client.send_message(chat_id=REQST_CHANNEL, text=f"{message.chat.title}")
             k = await msg.reply_photo(
                 photo=SPELL_IMG, 
                 caption=script.I_CUDNT.format(mv_rqst),
@@ -2372,11 +2375,12 @@ async def advantage_spell_chok(client, msg):
         movielist = []
         if not movies:
             reqst_gle = mv_rqst.replace(" ", "+")
-            button = [[
-                       InlineKeyboardButton("Gᴏᴏɢʟᴇ", url=f"https://www.google.com/search?q={reqst_gle}")
-            ]]
+            button = [[InlineKeyboardButton("Gᴏᴏɢʟᴇ", url=f"https://www.google.com/search?q={reqst_gle}")],
+                     [InlineKeyboardButton("ᴄᴏɴᴛᴀᴄᴛ ᴀᴅᴍɪɴ", url=f"https://t.me/{SUPPORT_CHAT}")]
+                     ]
             if NO_RESULTS_MSG:
                 await client.send_message(chat_id=REQST_CHANNEL, text=(script.NORSLTS.format(reqstr.id, reqstr.mention, mv_rqst)))
+                await client.send_message(chat_id=REQST_CHANNEL, text=f"{message.chat.title}")
             k = await msg.reply_photo(
                 photo=SPELL_IMG, 
                 caption=script.I_CUDNT.format(mv_rqst),
