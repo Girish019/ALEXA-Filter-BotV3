@@ -241,14 +241,10 @@ async def next_page(bot, query):
         except MessageNotModified:
             pass
     await query.answer()
-
 @Client.on_callback_query(filters.regex(r"^spol"))
 async def advantage_spoll_choker(bot, query):
-    rmsg = query.message
-    reqstmsg = rmsg.replay_to_massage
-    grp_name = reqstmsg.chat.title
     _, user, movie_ = query.data.split('#')
-    movies = SPELL_CHECK.get(reqstmsg.id)
+    movies = SPELL_CHECK.get(query.message.reply_to_message.id)
     if not movies:
         return await query.answer(script.OLD_ALRT_TXT.format(query.from_user.first_name), show_alert=True)
     if int(user) != 0 and query.from_user.id != int(user):
@@ -273,9 +269,8 @@ async def advantage_spoll_choker(bot, query):
                 if NO_RESULTS_MSG:
                     await bot.send_message(chat_id=REQST_CHANNEL, text=(script.NORSLTS.format(reqstr.id, reqstr.mention, movie)))
                 k = await query.message.edit(script.MVE_NT_FND)
-                await asyncio.sleep(20)
+                await asyncio.sleep(10)
                 await k.delete()
-                await reqstmsg.delete()
 
 #languages
 
