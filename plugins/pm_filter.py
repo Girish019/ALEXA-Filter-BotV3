@@ -2279,7 +2279,7 @@ async def advantage_spell_chok(client, msg):
                      [InlineKeyboardButton("ᴄᴏɴᴛᴀᴄᴛ ᴀᴅᴍɪɴ", url=f"https://t.me/{SUPPORT_CHAT}")]
                      ]
             if NO_RESULTS_MSG:
-                await client.send_message(chat_id=REQST_CHANNEL, text=(script.NO_RSLTS.format(reqstr.id, reqstr.mention, msg.chat.title)))
+                await client.send_message(chat_id=REQST_CHANNEL, text=(script.NO_RSLTS.format(reqstr.id, reqstr.mention, mv_rqst, msg.chat.title)))
             k = await msg.reply_photo(
                 photo=SPELL_IMG, 
                 caption=script.I_CUDNT.format(mv_rqst),
@@ -2317,7 +2317,7 @@ async def advantage_spell_chok(client, msg):
                      [InlineKeyboardButton("ᴄᴏɴᴛᴀᴄᴛ ᴀᴅᴍɪɴ", url=f"https://t.me/{SUPPORT_CHAT}")]
                      ]
             if NO_RESULTS_MSG:
-                await client.send_message(chat_id=REQST_CHANNEL, text=(script.NO_RSLTS.format(reqstr.id, reqstr.mention, msg.chat.title)))
+                await client.send_message(chat_id=REQST_CHANNEL, text=(script.NO_RSLTS.format(reqstr.id, reqstr.mention, mv_rqst, msg.chat.title)))
             k = await msg.reply_photo(
                 photo=SPELL_IMG, 
                 caption=script.I_CUDNT.format(mv_rqst),
@@ -2360,7 +2360,7 @@ async def advantage_spell_chok(client, msg):
                      [InlineKeyboardButton("ᴄᴏɴᴛᴀᴄᴛ ᴀᴅᴍɪɴ", url=f"https://t.me/{SUPPORT_CHAT}")]
                      ]
             if NO_RESULTS_MSG:
-                await client.send_message(chat_id=REQST_CHANNEL, text=(script.NO_RSLTS.format(reqstr.id, reqstr.mention, msg.chat.title)))
+                await client.send_message(chat_id=REQST_CHANNEL, text=(script.NO_RSLTS.format(reqstr.id, reqstr.mention, mv_rqst, msg.chat.title)))
             k = await msg.reply_photo(
                 photo=SPELL_IMG, 
                 caption=script.I_CUDNT.format(mv_rqst),
@@ -2376,7 +2376,7 @@ async def advantage_spell_chok(client, msg):
                      [InlineKeyboardButton("ᴄᴏɴᴛᴀᴄᴛ ᴀᴅᴍɪɴ", url=f"https://t.me/{SUPPORT_CHAT}")]
                      ]
             if NO_RESULTS_MSG:
-                await client.send_message(chat_id=REQST_CHANNEL, text=(script.NO_RSLTS.format(reqstr.id, reqstr.mention, msg.chat.title)))
+                await client.send_message(chat_id=REQST_CHANNEL, text=(script.NO_RSLTS.format(reqstr.id, reqstr.mention, mv_rqst, msg.chat.title)))
             k = await msg.reply_photo(
                 photo=SPELL_IMG, 
                 caption=script.I_CUDNT.format(mv_rqst),
