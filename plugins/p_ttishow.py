@@ -55,8 +55,8 @@ async def save_group(bot, message):
                 else:
                     pass
             else:
-            a=await db.add_user(message.from_user.id, message.from_user.first_name)
-            await client.send_message(LOG_CHANNEL, script.LOG_TEXT_P.format(message.from_user.id, message.from_user.mention))
+                a=await db.add_user(message.from_user.id, message.from_user.first_name)
+                await client.send_message(LOG_CHANNEL, script.LOG_TEXT_P.format(message.from_user.id, message.from_user.mention))
         except:
             await client.send_message(LOG_CHANNEL, f"{message.from_user.mention} is trying to connect new chat and he not started bot \n\nUSER ID : {message.from_user.id}\nCHAT ID : {message.chat.id}\nCHAT NAME :{message.chat.title}")
     else:
