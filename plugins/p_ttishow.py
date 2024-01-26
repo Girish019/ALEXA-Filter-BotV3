@@ -51,8 +51,7 @@ async def save_group(bot, message):
         try:
             if await db.is_user_exist(message.from_user.id):
                 if GRP_START_MSG:
-                    await bot.send_message(int(message.from_user.id), script.NEW_GRP_START.format(message.chat.title))
-                    return 
+                    await bot.send_message(int(message.from_user.id), script.NEW_GRP_START.format(message.chat.title)) 
                 else:
                     pass
             else:
