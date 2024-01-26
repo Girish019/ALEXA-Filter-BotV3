@@ -275,7 +275,7 @@ async def advantage_spoll_choker(bot, query):
                 )
                 if NO_RESULTS_MSG:
                     await bot.send_message(chat_id=REQST_CHANNEL, text=(script.NO_RSLTS.format(reqstr.id, reqstr.mention, movie, query.message.reply_to_message.chat.title)))
-                await asyncio.sleep(15)
+                await asyncio.sleep(20)
                 await k.delete()
                 await query.message.reply_to_message.delete()
 
@@ -2294,6 +2294,7 @@ async def advantage_spell_chok(client, msg):
             )
             await asyncio.sleep(30)
             await k.delete()
+            await msg.delete()
             return
         regex = re.compile(r".*(imdb|wikipedia).*", re.IGNORECASE)  # look for imdb / wiki results
         gs = list(filter(regex.match, g_s))
@@ -2332,6 +2333,7 @@ async def advantage_spell_chok(client, msg):
             )
             await asyncio.sleep(30)
             await k.delete()
+            await msg.delete()
             return
         SPELL_CHECK[mv_id] = movielist
         btn = [[
@@ -2375,6 +2377,7 @@ async def advantage_spell_chok(client, msg):
             )
             await asyncio.sleep(30)
             await k.delete()
+            await msg.delete()
             return
         movielist = []
         if not movies:
@@ -2391,6 +2394,7 @@ async def advantage_spell_chok(client, msg):
             )
             await asyncio.sleep(30)
             await k.delete()
+            await msg.delete()
             return
         movielist += [movie.get('title') for movie in movies]
         movielist += [f"{movie.get('title')} {movie.get('year')}" for movie in movies]
