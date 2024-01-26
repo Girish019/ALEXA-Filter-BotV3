@@ -3,7 +3,7 @@
 class script(object):
     START_TXT = """<b>Hᴇʟʟᴏ {},\nMʏ Nᴀᴍᴇ <a href=https://t.me/{}>{}</a>, I Cᴀɴ Pʀᴏᴠɪᴅᴇ Mᴏᴠɪᴇs, Jᴜsᴛ Aᴅᴅ Mᴇ Tᴏ Yᴏᴜʀ Gʀᴏᴜᴘ As Aᴅᴍɪɴ Aɴᴅ Eɴᴊᴏʏ 😍"""
     
-    NEW_GRP_START """ɪ ᴀᴍ sᴜᴄᴄᴇssғᴜʟʟʏ ᴊᴏɪɴᴇᴅ ᴏᴜʀ ɢʀᴏᴜᴘ {}
+    NEW_GRP_START = """ɪ ᴀᴍ sᴜᴄᴄᴇssғᴜʟʟʏ ᴊᴏɪɴᴇᴅ ᴏᴜʀ ɢʀᴏᴜᴘ {}
     
 ɪғ ʏᴏᴜ ᴀʀᴇ ᴀᴅᴍɪɴ ɪɴ ᴛʜɪs ɢʀᴏᴜᴘ ʏᴏᴜ ᴄᴏɴɴᴇᴄᴛ ᴀɴᴅ ᴍᴀɴᴇɢᴇ ᴍᴇ ʙʏ ᴜsɪɴɢ /connect
 
