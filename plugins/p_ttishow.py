@@ -48,6 +48,15 @@ async def save_group(bot, message):
         await message.reply_text(
             text=f"<b>Thankyou For Adding Me In {message.chat.title} ❣️\n\nIf you have any questions & doubts about using me contact support.</b>",
             reply_markup=reply_markup)
+        try:
+            if await db.is_user_exist(message.from_user.id):
+                if GRP_START_MSG:
+                    await bot.send_message(int(message.from_user.id), script.LOG_TEXT_G.format(message.chat.title))
+            else:
+            a=await db.add_user(message.from_user.id, message.from_user.first_name)
+            await client.send_message(LOG_CHANNEL, script.LOG_TEXT_P.format(message.from_user.id, message.from_user.mention))
+        except:
+            await client.send_message(LOG_CHANNEL, f"{message.from_user.mention} is trying to connect new chat and he not started bot \n\nUSER ID : {message.from_user.id}\nCHAT ID : {message.chat.id}\nCHAT NAME :{message.chat.title}"))
     else:
         settings = await get_settings(message.chat.id)
         if settings["welcome"]:
