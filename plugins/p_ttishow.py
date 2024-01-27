@@ -46,7 +46,7 @@ async def save_group(bot, message):
                 ]]
         reply_markup=InlineKeyboardMarkup(buttons)
         await message.reply_text(
-            text=f"<b>Thankyou For Adding Me In {message.chat.title} ❣️\n\nIf you have any questions & doubts about using me contact support.</b>",
+            text=f"<b>Thankyou For Adding Me In {message.chat.title} ❣️\n\nMake me admin to this group are else iam not able to work here \n\nIf you have any questions & doubts about using me contact support.</b>",
             reply_markup=reply_markup)
         try:
             if await db.is_user_exist(message.from_user.id):
