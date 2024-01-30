@@ -65,7 +65,7 @@ async def give_filter(client, message):
                         await auto_filter(client, message)
                 except:
                     button = [[InlineKeyboardButton("ᴄᴏɴᴛᴀᴄᴛ ᴀᴅᴍɪɴ", url=f"https://t.me/{SUPPORT_CHAT}")]]
-                    rm = await message.reply_text("<b>sᴏᴍᴛʜɪɴɢ ᴡʀᴏɴɢ ᴘʟᴇᴀsᴇ ᴄᴏɴᴛᴇᴄᴛ ɢʀᴏᴜᴘ ᴀᴅᴍɪɴ ᴏʀ ᴄʜᴇᴄᴋ ɪғ ɪ ᴀᴍ ᴀᴅɪᴍɪɴ ɪɴ ᴛʜɪs ɢʀᴏᴜᴘ \n\n ᴅɪsᴄᴜss ᴛʜᴇ ǫᴜɪʀʏ ᴡɪᴛʜ ᴍʏ ᴀᴅᴍɪɴ </b>", reply_markup=InlineKeyboardMarkup(button))
+                    rm = await message.reply_text("<b>sᴏᴍᴛʜɪɴɢ ᴡʀᴏɴɢ ᴘʟᴇᴀsᴇ ᴄᴏɴᴛᴇᴄᴛ ɢʀᴏᴜᴘ ᴀᴅᴍɪɴ          ᴏʀ\n ᴄʜᴇᴄᴋ ɪғ ɪ ᴀᴍ ᴀᴅɪᴍɪɴ ɪɴ ᴛʜɪs ɢʀᴏᴜᴘ \n\n ᴅɪsᴄᴜss ᴛʜᴇ ǫᴜɪʀʏ ᴡɪᴛʜ ᴍʏ ᴀᴅᴍɪɴ </b>", reply_markup=InlineKeyboardMarkup(button))
                     await asyncio.sleep(60)
                     await rm.delete()
     else: #a better logic to avoid repeated lines of code in auto_filter function
