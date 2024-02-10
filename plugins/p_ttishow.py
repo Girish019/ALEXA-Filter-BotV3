@@ -18,8 +18,9 @@ async def save_group(bot, message):
     if temp.ME in r_j_check:
         if not await db.get_chat(message.chat.id):
             total=await bot.get_chat_members_count(message.chat.id)
-            r_j = message.from_user.mention if message.from_user else "Anonymous" 
-            await bot.send_message(LOG_CHANNEL, script.LOG_TEXT_G.format(message.chat.title, message.chat.id, total, r_j))       
+            add_by = message.from_user.mention if message.from_user else "Anonymous"
+            add_byuid = message.from_user.mention if message.from_user else "No User id (Anonymous)"
+            await bot.send_message(LOG_CHANNEL, script.LOG_TEXT_G.format(message.chat.title, message.chat.id, total, add_by, add_byuid))       
             await db.add_chat(message.chat.id, message.chat.title)
         if message.chat.id in temp.BANNED_CHATS:
             # Inspired from a boat of a banana tree
@@ -49,14 +50,14 @@ async def save_group(bot, message):
             text=f"<b>Thankyou For Adding Me In {message.chat.title} ❣️\n\nMake me admin to this group are else iam not able to work here \n\nIf you have any questions & doubts about using me contact support.</b>",
             reply_markup=reply_markup)
         try:
-            if await db.is_user_exist(message.from_user.id):
+            if await db.is_user_exist(add_byuid):
                 if GRP_START_MSG:
-                    await bot.send_message(int(message.from_user.id), script.NEW_GRP_START.format(message.chat.title)) 
+                    await bot.send_message(int(add_byuid), script.NEW_GRP_START.format(message.chat.title)) 
                 else:
                     pass
             else:
-                a=await db.add_user(message.from_user.id, message.from_user.first_name)
-                await client.send_message(LOG_CHANNEL, script.LOG_TEXT_P.format(message.from_user.id, message.from_user.mention))
+                a=await db.add_user(add_byuid, message.from_user.first_name)
+                await client.send_message(LOG_CHANNEL, script.LOG_TEXT_P.format(add_byuid, message.from_user.mention))
         except:
             await client.send_message(LOG_CHANNEL, f"{message.from_user.mention} is trying to connect new chat and he not started bot \n\nUSER ID : {message.from_user.id}\nCHAT ID : {message.chat.id}\nCHAT NAME :{message.chat.title}")
     else:
