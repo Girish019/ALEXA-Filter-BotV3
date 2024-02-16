@@ -50,7 +50,7 @@ loop = asyncio.get_event_loop()
 
 async def AM_start():
     print('\n')
-    print('Initalizing MJ Bot')
+    print('Initalizing AM Bot')
     bot_info = await AMBot.get_me()
     AMBot.username = bot_info.username
     await initialize_clients()
