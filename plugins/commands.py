@@ -8,7 +8,7 @@ from pyrogram.errors import ChatAdminRequired, FloodWait
 from pyrogram.types import *
 from database.ia_filterdb import Media, get_file_details, unpack_new_file_id, get_bad_files
 from database.users_chats_db import db
-from info import CHANNELS, ADMINS, OWNER, AUTH_CHANNEL, LOG_CHANNEL, PICS, BATCH_FILE_CAPTION, CUSTOM_FILE_CAPTION, PROTECT_CONTENT, CHNL_LNK, GRP_LNK, REQST_CHANNEL, SUPPORT_CHAT_ID, SUPPORT_CHAT, MAX_B_TN, VERIFY, SHORTLINK_API, SHORTLINK_URL, TUTORIAL, IS_TUTORIAL, PREMIUM
+from info import CHANNELS, ADMINS, OWNER, AUTH_CHANNEL, LOG_CHANNEL, PICS, BATCH_FILE_CAPTION, CUSTOM_FILE_CAPTION, PROTECT_CONTENT, GRP_START_MSG, CHNL_LNK, GRP_LNK, REQST_CHANNEL, SUPPORT_CHAT_ID, SUPPORT_CHAT, MAX_B_TN, VERIFY, SHORTLINK_API, SHORTLINK_URL, TUTORIAL, IS_TUTORIAL, PREMIUM
 from utils import get_settings, get_size, is_subscribed, save_group_settings, temp, verify_user, check_token, check_verification, get_token, get_shortlink, get_tutorial
 from database.connections_mdb import active_connection
 # from plugins.pm_filter import ENABLE_SHORTLINK
@@ -45,6 +45,16 @@ async def start(client, message):
             add_byuid = message.from_user.id if message.from_user else "No User id (Anonymous)"
             await client.send_message(LOG_CHANNEL, script.LOG_TEXT_G.format(message.chat.title, message.chat.id, total, add_by, add_byuid))       
             await db.add_chat(message.chat.id, message.chat.title, add_byuid)
+            try:
+                if await db.is_user_exist(add_byuid):
+                    if GRP_START_MSG:
+                        await bot.send_message(int(add_byuid), script.NEW_GRP_START.format(message.chat.title))
+                        return
+                else:
+                    a=await db.add_user(add_byuid, message.from_user.first_name)
+                    await client.send_message(LOG_CHANNEL, script.LOG_TEXT_P.format(add_byuid, message.from_user.mention, temp.U_NAME, temp.B_NAME),disable_web_page_preview=True)
+            except:
+                await client.send_message(LOG_CHANNEL, f"**#GRP_ADMIN_ERROR**\n{message.from_user.mention} is trying to connect new chat but not started bot \n\nUSER ID : {message.from_user.id}\nCHAT ID : {message.chat.id}\nCHAT NAME :{message.chat.title}")
         return 
     if not await db.is_user_exist(message.from_user.id):
         a=await db.add_user(message.from_user.id, message.from_user.first_name)
