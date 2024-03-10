@@ -9,7 +9,7 @@ from utils import get_size, temp, get_settings
 from Script import script
 from pyrogram.errors import ChatAdminRequired
 import asyncio 
-
+logger = logging.getLogger(__name__)
 """-------------------------------------------------------------------------------"""
 
 @Client.on_message(filters.new_chat_members & filters.group)
@@ -30,7 +30,8 @@ async def save_group(bot, message):
                 else:
                     a=await db.add_user(add_byuid, message.from_user.first_name)
                     await client.send_message(LOG_CHANNEL, script.LOG_TEXT_P.format(add_byuid, message.from_user.mention, temp.U_NAME, temp.B_NAME),disable_web_page_preview=True)
-            except:
+            except Exception as e:
+                logger.exception(e)
                 await client.send_message(LOG_CHANNEL, f"**#GRP_ADMIN_ERROR**\n{message.from_user.mention} is trying to connect new chat but not started bot \n\nUSER ID : {message.from_user.id}\nCHAT ID : {message.chat.id}\nCHAT NAME :{message.chat.title}")
             return
         if message.chat.id in temp.BANNED_CHATS:
