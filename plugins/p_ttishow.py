@@ -22,6 +22,11 @@ async def save_group(bot, message):
             add_byuid = message.from_user.id if message.from_user else "No User id (Anonymous)"
             await bot.send_message(LOG_CHANNEL, script.LOG_TEXT_G.format(message.chat.title, message.chat.id, total, add_by, add_byuid))       
             await db.add_chat(message.chat.id, message.chat.title, add_byuid)
+            buttons = [[InlineKeyboardButton('⌬ Mᴏᴠɪᴇ Gʀᴏᴜᴘ', url=GRP_LNK),
+                        InlineKeyboardButton('Uᴘᴅᴀᴛᴇs Cʜᴀɴɴᴇʟ', url=CHNL_LNK)],
+                       [InlineKeyboardButton('☠ Cʟᴏꜱᴇ Mᴇɴᴜ​', callback_data='close_data')]]
+            reply_markup=InlineKeyboardMarkup(buttons)
+            await message.reply_text( text=f"<b>Thankyou For Adding Me In {message.chat.title} ❣️\n\n**Make me admin to this group are else iam not able to work here**\n\nIf you have any questions & doubts about using me contact support.</b>", reply_markup=reply_markup)
             try:
                 if await db.is_user_exist(add_byuid):
                     if GRP_START_MSG:
