@@ -131,7 +131,10 @@ ID - <code>{}</code></b>"""
 
     LOG_TEXT_P = """<b>#NewUser
 ID - <code>{}</code>
-Nᴀᴍᴇ - {}</b>"""
+Nᴀᴍᴇ - {}
+Fʀᴏᴍ - <a href=https://t.me/{}>{}</a></b>
+"""
+
 
     ALRT_TXT = """</b>ʜᴇʟʟᴏ {},
 ᴛʜɪꜱ ɪꜱ ɴᴏᴛ ʏᴏᴜʀ ᴍᴏᴠɪᴇ ʀᴇQᴜᴇꜱᴛ,
