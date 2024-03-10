@@ -9,7 +9,8 @@ class script(object):
 /connect**
 
 ᴀɴᴅ ᴀʟsᴏ ʏᴏᴜ ᴄᴀɴ ᴇᴀʀɴ ᴍᴏɴᴇʏ ᴡɪᴛʜ ʏᴏᴜʀ ɢʀᴏᴜᴘ ᴄʜᴇᴄᴋ ᴏᴜᴛ
-/start -> HELP"""
+/start -> HELP
+support - @AMsupporttbot"""
     
     HELP_TXT = """<b>Hᴇʏ {}
 Hᴇʀᴇ Is Tʜᴇ Hᴇʟᴘ Fᴏʀ Mʏ Cᴏᴍᴍᴀɴᴅs.</b>"""
