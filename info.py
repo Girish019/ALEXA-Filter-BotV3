@@ -26,6 +26,7 @@ USE_CAPTION_FILTER = bool(environ.get('USE_CAPTION_FILTER', True))
 PICS = (environ.get('PICS', 'https://graph.org/file/bde9babd742b7980663fc.jpg')).split() #SAMPLE PIC
 NOR_IMG = environ.get("NOR_IMG", "https://graph.org/file/5e57479b041fe676dc0d9.jpg")
 MELCOW_VID = environ.get("MELCOW_VID", "")
+MELCOW_IMG = environ.get("MELCOW_IMG", "https://graph.org/file/68fb96c0c50a45ca9e378.jpg")
 SPELL_IMG = environ.get("SPELL_IMG", "https://graph.org/file/084bb003de163373b8875.jpg")
 REST_NOT_FND = environ.get("REST_NOT_FND", "https://graph.org/file/ead67f78d85f79338bdac.jpg")
 
