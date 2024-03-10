@@ -2,7 +2,7 @@
 from pyrogram import Client, filters, enums
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, CallbackQuery
 from pyrogram.errors.exceptions.bad_request_400 import MessageTooLong, PeerIdInvalid
-from info import ADMINS, LOG_CHANNEL, SUPPORT_CHAT, MELCOW_NEW_USERS, MELCOW_VID, MELCOW_IMG, CHNL_LNK, GRP_LNK
+from info import ADMINS, LOG_CHANNEL, SUPPORT_CHAT, MELCOW_NEW_USERS, MELCOW_VID, MELCOW_IMG, GRP_START_MSG, CHNL_LNK, GRP_LNK
 from database.users_chats_db import db
 from database.ia_filterdb import Media
 from utils import get_size, temp, get_settings
@@ -22,23 +22,34 @@ async def save_group(bot, message):
             add_byuid = message.from_user.id if message.from_user else "No User id (Anonymous)"
             await bot.send_message(LOG_CHANNEL, script.LOG_TEXT_G.format(message.chat.title, message.chat.id, total, add_by, add_byuid))       
             await db.add_chat(message.chat.id, message.chat.title, add_byuid)
-            if message.chat.id in temp.BANNED_CHATS:
-                # Inspired from a boat of a banana tree
-                buttons = [[
-                    InlineKeyboardButton('Support', url=f'https://t.me/{SUPPORT_CHAT}')
-                ]]
-                reply_markup=InlineKeyboardMarkup(buttons)
-                k = await message.reply(
-                    text='<b>CHAT NOT ALLOWED 🐞\n\nMy admins has restricted me from working here ! If you want to know more about it contact support..</b>',
-                    reply_markup=reply_markup,
-                )
-    
-                try:
-                    await k.pin()
-                    await bot.leave_chat(message.chat.id)
-                except:
-                    pass
-                return
+            try:
+                if await db.is_user_exist(add_byuid):
+                    if GRP_START_MSG:
+                        await bot.send_message(int(add_byuid), script.NEW_GRP_START.format(message.chat.title))
+                        return
+                else:
+                    a=await db.add_user(add_byuid, message.from_user.first_name)
+                    await client.send_message(LOG_CHANNEL, script.LOG_TEXT_P.format(add_byuid, message.from_user.mention, temp.U_NAME, temp.B_NAME),disable_web_page_preview=True)
+            except:
+                await client.send_message(LOG_CHANNEL, f"**#GRP_ADMIN_ERROR**\n{message.from_user.mention} is trying to connect new chat but not started bot \n\nUSER ID : {message.from_user.id}\nCHAT ID : {message.chat.id}\nCHAT NAME :{message.chat.title}")
+            return
+        if message.chat.id in temp.BANNED_CHATS:
+            # Inspired from a boat of a banana tree
+            buttons = [[
+                InlineKeyboardButton('Support', url=f'https://t.me/{SUPPORT_CHAT}')
+            ]]
+            reply_markup=InlineKeyboardMarkup(buttons)
+            k = await message.reply(
+                text='<b>CHAT NOT ALLOWED 🐞\n\nMy admins has restricted me from working here ! If you want to know more about it contact support..</b>',
+                reply_markup=reply_markup,
+            )
+
+            try:
+                await k.pin()
+                await bot.leave_chat(message.chat.id)
+            except:
+                pass
+            return
         buttons = [[InlineKeyboardButton('⌬ Mᴏᴠɪᴇ Gʀᴏᴜᴘ', url=GRP_LNK),
                     InlineKeyboardButton('Uᴘᴅᴀᴛᴇs Cʜᴀɴɴᴇʟ', url=CHNL_LNK)],
                    [InlineKeyboardButton('☠ Cʟᴏꜱᴇ Mᴇɴᴜ​', callback_data='close_data')]]
@@ -46,17 +57,6 @@ async def save_group(bot, message):
         await message.reply_text(
             text=f"<b>Thankyou For Adding Me In {message.chat.title} ❣️\n\nMake me admin to this group are else iam not able to work here \n\nIf you have any questions & doubts about using me contact support.</b>",
             reply_markup=reply_markup)
-        try:
-            if await db.is_user_exist(add_byuid):
-                if GRP_START_MSG:
-                    await bot.send_message(int(add_byuid), script.NEW_GRP_START.format(message.chat.title)) 
-                else:
-                    pass
-            else:
-                a=await db.add_user(add_byuid, message.from_user.first_name)
-                await client.send_message(LOG_CHANNEL, script.LOG_TEXT_P.format(add_byuid, message.from_user.mention, temp.U_NAME, temp.B_NAME),disable_web_page_preview=True)
-        except:
-            await client.send_message(LOG_CHANNEL, f"**#GRP_ADMIN_ERROR**\n{message.from_user.mention} is trying to connect new chat but not started bot \n\nUSER ID : {message.from_user.id}\nCHAT ID : {message.chat.id}\nCHAT NAME :{message.chat.title}")
     else:
         settings = await get_settings(message.chat.id)
         if settings["welcome"]:
