@@ -200,6 +200,10 @@ Tɪᴘ: Sᴇʟᴇᴄᴛ "Lᴀɴɢᴜᴀɢᴇs" ᴏʀ "Sᴇᴀsᴏɴs" Bᴜᴛᴛ
 
     SINFO = """
 🫣 Want Movie than Join us and Hit Try again Button😅"""
+    DISABLESTREAM = """
+  sᴏʀʀʏ ғᴏʀ ᴛʜᴇ ɪɴᴄᴏɴᴠᴇɴɪᴇɴᴄᴇs😔
+
+  ᴛʜɪs ғᴇᴀᴛᴜʀᴇ ɪs ᴛᴇᴍᴘᴏʀᴀʀɪʟʏ ᴅɪsᴀʙʟᴇᴅ ʙʏ ᴛʜᴇ ᴏᴡɴᴇʀs"""
 
     NORSLTS = """ 
 ★ #𝗡𝗼𝗥𝗲𝘀𝘂𝗹𝘁𝘀 ★
