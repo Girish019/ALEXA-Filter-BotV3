@@ -537,31 +537,8 @@ async def get_verify_shorted_link(link):
     if "http" == https:
         https = "https"
         link = link.replace("http", https)
-
-    if URL == "api.shareus.in":
-        url = f"https://{URL}/shortLink"
-        params = {"token": API,
-                  "format": "json",
-                  "link": link,
-                  }
-        try:
-            async with aiohttp.ClientSession() as session:
-                async with session.get(url, params=params, raise_for_status=True, ssl=False) as response:
-                    data = await response.json(content_type="text/html")
-                    if data["status"] == "success":
-                        return data["shortlink"]
-                    else:
-                        logger.error(f"Error: {data['message']}")
-                        return f'https://{URL}/shortLink?token={API}&format=json&link={link}'
-
-        except Exception as e:
-            logger.error(e)
-            return f'https://{URL}/shortLink?token={API}&format=json&link={link}'
-    else:
         url = f'https://{URL}/api'
-        params = {'api': API,
-                  'url': link,
-                  }
+        params = {'api': API, 'url': link,}
         try:
             async with aiohttp.ClientSession() as session:
                 async with session.get(url, params=params, raise_for_status=True, ssl=False) as response:
@@ -575,6 +552,30 @@ async def get_verify_shorted_link(link):
         except Exception as e:
             logger.error(e)
             return f'{URL}/api?api={API}&link={link}'
+    else:
+        return f'https://{URL}/shortLink?token={API}&format=json&link={link}'
+
+    #if URL == "api.shareus.in":
+    #    url = f"https://{URL}/shortLink"
+    #    params = {"token": API,
+    #              "format": "json",
+    #              "link": link,
+    #              }
+    #    try:
+    #        async with aiohttp.ClientSession() as session:
+    #            async with session.get(url, params=params, raise_for_status=True, ssl=False) as response:
+    #                data = await response.json(content_type="text/html")
+    #                if data["status"] == "success":
+    #                    return data["shortlink"]
+    #                else:
+    #                    logger.error(f"Error: {data['message']}")
+    #                    return f'https://{URL}/shortLink?token={API}&format=json&link={link}'
+ #
+    #    except Exception as e:
+    #        logger.error(e)
+    #        return f'https://{URL}/shortLink?token={API}&format=json&link={link}'
+    #else:
+        
 
 async def check_token(bot, userid, token):
     user = await bot.get_users(userid)
