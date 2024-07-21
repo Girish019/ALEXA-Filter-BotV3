@@ -56,9 +56,9 @@ DATABASE_NAME = environ.get('DATABASE_NAME', "Cluster0")
 COLLECTION_NAME = environ.get('COLLECTION_NAME', 'Telegram_files')
 
 # Others
-VERIFY = bool(environ.get('VERIFY', False))
-SHORTLINK_URL = environ.get('SHORTLINK_URL', 'Upshrink.com')
-SHORTLINK_API = environ.get('SHORTLINK_API', '7864f20bc9c1eb4c29769f820c1069ddd21dfe94')
+VERIFY = bool(environ.get('VERIFY', True))
+SHORTLINK_URL = environ.get('SHORTLINK_URL', 'adlinkfly.in')
+SHORTLINK_API = environ.get('SHORTLINK_API', 'a3f8fd04f9389222dca40c13c17b0d5f69a7e2be')
 IS_SHORTLINK = bool(environ.get('IS_SHORTLINK', False))
 DELETE_CHANNELS = [int(dch) if id_pattern.search(dch) else dch for dch in environ.get('DELETE_CHANNELS', '-1002050485131').split()]
 MAX_B_TN = environ.get("MAX_B_TN", "5")
