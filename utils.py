@@ -549,9 +549,18 @@ async def get_verify_shorted_link(link):
                         logger.error(f"Error: {data['message']}")
                         return f'https://{URL}/api?api={API}&link={link}'
 
-        except Exception as e:
-            logger.error(e)
-            return f'{URL}/api?api={API}&link={link}'
+        except:
+            length = random.randint(3, 8)
+            population = string.ascii_letters + string.digits
+            random_string = ''.join(random.choice(population) for _ in range(length))
+            try:
+                resp = requests.get(f"https://{URL}/api?api={API}&url={link}&alias={random_string}")
+                data = resp.json()
+                url = data["shortenedUrl"]
+                return url
+            except Exception as e:
+                logger.error(e)
+                return f'{URL}/api?api={API}&link={link}'
     else:
         return f'https://{URL}/shortLink?token={API}&format=json&link={link}'
 
