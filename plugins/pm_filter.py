@@ -51,24 +51,24 @@ SPELL_CHECK = {}
 async def give_filter(client, message):
     if message.chat.id != SUPPORT_CHAT_ID:
         # if message.from_user.id == admin for admin in ADMINS:
-        if message.from_user.id == ADMINS:
-            manual = await manual_filters(client, message)
-            if manual == False:
+        # if message.from_user.id == ADMINS:
+        manual = await manual_filters(client, message)
+        if manual == False:
+            settings = await get_settings(message.chat.id)
+            try:
+                if settings['auto_ffilter']:
+                    await auto_filter(client, message)
+            except KeyError:
+                grpid = await active_connection(str(message.from_user.id))
+                await save_group_settings(grpid, 'auto_ffilter', True)
                 settings = await get_settings(message.chat.id)
-                try:
-                    if settings['auto_ffilter']:
-                        await auto_filter(client, message)
-                except KeyError:
-                    grpid = await active_connection(str(message.from_user.id))
-                    await save_group_settings(grpid, 'auto_ffilter', True)
-                    settings = await get_settings(message.chat.id)
-                    if settings['auto_ffilter']:
-                        await auto_filter(client, message)
-                    else:
-                        button = [[InlineKeyboardButton("ᴄᴏɴᴛᴀᴄᴛ ᴀᴅᴍɪɴ", url=f"https://t.me/{SUPPORT_CHAT}")]]
-                        rm = await message.reply_text("<b>sᴏᴍᴛʜɪɴɢ ᴡʀᴏɴɢ ᴘʟᴇᴀsᴇ ᴄᴏɴᴛᴇᴄᴛ ɢʀᴏᴜᴘ ᴀᴅᴍɪɴ          ᴏʀ\n ᴄʜᴇᴄᴋ ɪғ ɪ ᴀᴍ ᴀᴅɪᴍɪɴ ɪɴ ᴛʜɪs ɢʀᴏᴜᴘ \n\n ᴅɪsᴄᴜss ᴛʜᴇ ǫᴜɪʀʏ ᴡɪᴛʜ ᴍʏ ᴀᴅᴍɪɴ </b>", reply_markup=InlineKeyboardMarkup(button))
-                        await asyncio.sleep(60)
-                        await rm.delete()
+                if settings['auto_ffilter']:
+                    await auto_filter(client, message)
+                else:
+                    button = [[InlineKeyboardButton("ᴄᴏɴᴛᴀᴄᴛ ᴀᴅᴍɪɴ", url=f"https://t.me/{SUPPORT_CHAT}")]]
+                    rm = await message.reply_text("<b>sᴏᴍᴛʜɪɴɢ ᴡʀᴏɴɢ ᴘʟᴇᴀsᴇ ᴄᴏɴᴛᴇᴄᴛ ɢʀᴏᴜᴘ ᴀᴅᴍɪɴ          ᴏʀ\n ᴄʜᴇᴄᴋ ɪғ ɪ ᴀᴍ ᴀᴅɪᴍɪɴ ɪɴ ᴛʜɪs ɢʀᴏᴜᴘ \n\n ᴅɪsᴄᴜss ᴛʜᴇ ǫᴜɪʀʏ ᴡɪᴛʜ ᴍʏ ᴀᴅᴍɪɴ </b>", reply_markup=InlineKeyboardMarkup(button))
+                    await asyncio.sleep(60)
+                    await rm.delete()
     else: #a better logic to avoid repeated lines of code in auto_filter function
         search = message.text
         temp_files, temp_offset, total_results = await get_search_results(chat_id=message.chat.id, query=search.lower(), offset=0, filter=True)
