@@ -450,9 +450,12 @@ async def start(client, message):
             )
             filetype = msg.media
             file = getattr(msg, filetype.value)
-            title = ' ' + ' '.join(filter(lambda x: not x.startswith('[') and not x.startswith('@'), file.file_name.split()))
+            title = ' ' + ' '.join(filter(lambda x: not x.startswith('[') and not x.startswith('@'), file.file_name.split())) #this use to ingore word start with 2 and [ in filename
             size=get_size(file.file_size)
             f_caption = f"<code>{title}</code>"
+
+            cap = file.caption
+            g = await msg.reply(f"filename - {f_caption} \n caption - {cap}",quote=True)
             if CUSTOM_FILE_CAPTION:
                 try:
                     f_caption=CUSTOM_FILE_CAPTION.format(file_name= '' if title is None else title, file_size='' if size is None else size, file_caption='')
