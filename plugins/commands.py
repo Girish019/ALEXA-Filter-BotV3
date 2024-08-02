@@ -489,13 +489,11 @@ async def start(client, message):
     if CUSTOM_FILE_CAPTION:
         try:
             # lod
-            f_caption=CUSTOM_FILE_CAPTION.format(file_name= '' if title is None else title, file_size='' if size is None else size, file_caption='' if f_caption is None else f_caption)
+            #f_caption=CUSTOM_FILE_CAPTION.format(file_name= '' if title is None else title, file_size='' if size is None else size, file_caption='' if f_caption is None else f_caption)
+            get_cap = write_cap(title, f_caption)
+            f_caption = script.CUSTOM_FILE_CAP.format(file_name= title if get_cap[0] is None else get_cap[0], audio = 'NOT FOUND' if get_cap[1] is None else get_cap[1], file_size='' if size is None else size)
             
-            #f_caption = script.CUSTOM_FILE_CAP.format(file_name= '' if title is None else title, audio = 'NOT FOUND' if title is None else "English, hindi", file_size='' if size is None else size)
-            p2log = await client.send_message(chat_id=LOG_CHANNEL, text=f"filename - {title} \n caption - {capt}")
-            get_cap = write_cap(title, capt)
-            print(get_cap)
-            p2lo = await client.send_message(chat_id=LOG_CHANNEL, text=f"getcap - {get_cap} \n\nfilename - {title} \n caption - {capt}")
+            
         except Exception as e:
             logger.exception(e)
             f_caption=f_caption
