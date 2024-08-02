@@ -9,7 +9,7 @@ from pyrogram.types import *
 from database.ia_filterdb import Media, get_file_details, unpack_new_file_id, get_bad_files
 from database.users_chats_db import db
 from info import CHANNELS, ADMINS, OWNER, AUTH_CHANNEL, LOG_CHANNEL, PICS, BATCH_FILE_CAPTION, CUSTOM_FILE_CAPTION, PROTECT_CONTENT, GRP_START_MSG, CHNL_LNK, GRP_LNK, REQST_CHANNEL, SUPPORT_CHAT_ID, SUPPORT_CHAT, MAX_B_TN, VERIFY, SHORTLINK_API, SHORTLINK_URL, TUTORIAL, IS_TUTORIAL, PREMIUM
-from utils import get_settings, get_size, is_subscribed, save_group_settings, temp, verify_user, check_token, check_verification, get_token, get_shortlink, get_tutorial
+from utils import get_settings, write_cap, get_size, is_subscribed, save_group_settings, temp, verify_user, check_token, check_verification, get_token, get_shortlink, get_tutorial
 from database.connections_mdb import active_connection
 # from plugins.pm_filter import ENABLE_SHORTLINK
 import re, asyncio, os, sys
@@ -453,9 +453,8 @@ async def start(client, message):
             title = ' ' + ' '.join(filter(lambda x: not x.startswith('[') and not x.startswith('@'), file.file_name.split())) #this use to ingore word start with 2 and [ in filename
             size=get_size(file.file_size)
             f_caption = f"<code>{title}</code>"
-
-            cap = file.caption
-            p = await msg.reply(f"filename - {f_caption} \n caption - {cap}",quote=True)
+            # cap = file.caption
+            # p1 = await msg.reply(f"filename - {f_caption} \n caption - {cap}",quote=True)
             if CUSTOM_FILE_CAPTION:
                 try:
                     f_caption=CUSTOM_FILE_CAPTION.format(file_name= '' if title is None else title, file_size='' if size is None else size, file_caption='')
@@ -468,7 +467,7 @@ async def start(client, message):
             k = await msg.reply(f"{cap} \n <b><u>❗️❗️❗️IMPORTANT❗️️❗️❗️</u></b>\n\nThis Movie File/Video will be deleted in <b><u>10 mins</u> 🫥 <i></b>(Due to Copyright Issues)</i>.\n\n<b><i>Please forward this File/Video to your Saved Messages and Start Download there</i></b>",quote=True)
             await asyncio.sleep(10)
             await msg.delete()
-            await k.edit_text(f"<b>Your File/Video is successfully deleted!!!\nfilse==\n𝐅𝐢𝐥𝐞 𝐍𝐚𝐦𝐞 : {title}\n\nClick below button to get your deleted file 👇</b>",reply_markup=InlineKeyboardMarkup(btn))
+            await k.edit_text(f"<b>Your File/Video is successfully deleted!!!\n\n𝐅𝐢𝐥𝐞 𝐍𝐚𝐦𝐞 : {title} #p1\n\nClick below button to get your deleted file 👇</b>",reply_markup=InlineKeyboardMarkup(btn))
             return
         except:
             pass
@@ -477,10 +476,11 @@ async def start(client, message):
     title = ' ' + ' '.join(filter(lambda x: not x.startswith('[') and not x.startswith('@'), files.file_name.split()))
     size=get_size(files.file_size)
     f_caption=files.caption
-    p2 = await client.send_message(chat_id=message.from_user.id, text=f"filename - {title} \n caption - {f_caption}")
+    # p2 = await client.send_message(chat_id=message.from_user.id, text=f"filename - {title} \n caption - {f_caption}")
+    get_cap = await write_cap(title, f_caption)
     if CUSTOM_FILE_CAPTION:
         try:
-            f_caption=CUSTOM_FILE_CAPTION.format(file_name= '' if title is None else title, file_size='' if size is None else size, file_caption='' if f_caption is None else f_caption)
+            f_caption=CUSTOM_FILE_CAPTION.format(file_name= title if title is None else get_cap[2], audio = 'NOT FOUND' if title is None else get_cap[0], file_size='' if size is None else size, file_caption='' if f_caption is None else f_caption)
         except Exception as e:
             logger.exception(e)
             f_caption=f_caption
@@ -488,8 +488,10 @@ async def start(client, message):
         f_caption = f" {' '.join(filter(lambda x: not x.startswith('[') and not x.startswith('@'), files.file_name.split()))}"
     if not await check_verification(client, message.from_user.id) and VERIFY == True:
         btn = [[
-            InlineKeyboardButton("Verify", url=await get_token(client, message.from_user.id, f"https://telegram.me/{temp.U_NAME}?start="))
-        ]]
+                    InlineKeyboardButton("Verify", url=await get_token(client, message.from_user.id, f"https://telegram.me/{temp.U_NAME}?start="))
+               ],[
+                    InlineKeyboardButton('⁉️ Hᴏᴡ Tᴏ Verify ⁉️', url=TUTORIAL)
+                     ]]
         await message.reply_text(
             text="<b>You are not verified !\nKindly verify to continue !</b>",
             protect_content=True,
@@ -517,9 +519,9 @@ async def start(client, message):
         InlineKeyboardButton("Get File Again", callback_data=f'delfile#{file_id}')
     ]]
     k = await msg.reply("<b><u>❗️❗️❗️IMPORTANT❗️️❗️❗️</u></b>\n\nThis Movie File/Video will be deleted in <b><u>10 mins</u> 🫥 <i></b>(Due to Copyright Issues)</i>.\n\n<b><i>Please forward this File/Video to your Saved Messages and Start Download there</i></b>",quote=True)
-    await asyncio.sleep(10)
+    await asyncio.sleep(500)
     await msg.delete()
-    await k.edit_text(f"<b>Your File/Video is successfully deleted!!!\verify under\n𝐅𝐢𝐥𝐞 𝐍𝐚𝐦𝐞 : {title}\n\nClick below button to get your deleted file 👇</b>",reply_markup=InlineKeyboardMarkup(btn))
+    await k.edit_text(f"<b>Your File/Video is successfully deleted!!!\n\n𝐅𝐢𝐥𝐞 𝐍𝐚𝐦𝐞 : {title} #p2\n\nClick below button to get your deleted file 👇</b>",reply_markup=InlineKeyboardMarkup(btn))
     return   
 
 @Client.on_message(filters.command('channel') & filters.user(ADMINS))
