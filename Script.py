@@ -224,8 +224,9 @@ Tɪᴘ: Sᴇʟᴇᴄᴛ "Lᴀɴɢᴜᴀɢᴇs" ᴏʀ "Sᴇᴀsᴏɴs" Bᴜᴛᴛ
 𝗤𝘂𝗮𝗿𝘆 <b>:</b> <code>{}</code>
 
 𝙍𝙚𝙦𝙪𝙚𝙨𝙩 𝙂𝙧𝙤𝙪𝙥 <b>: {}</b> """
-    
-    CAPTION = """<b>📁ғɪʟᴇ ɴᴀᴍᴇ</b> : <code>{file_name}</code> \n<b>\nSize ⚙️: {file_size} \n\n🎬Jᴏɪɴ ᴜs : [𝐀𝐋𝐄𝐗𝐀 𝐌𝐎𝐕𝐈𝐄𝐒](https://t.me/alexa_movies)\n</b>""" 
+
+   # OLD # CAPTION = """<b>📁ғɪʟᴇ ɴᴀᴍᴇ</b> : <code>{file_name}</code> \n<b>\nSize ⚙️: {file_size} \n\n🎬Jᴏɪɴ ᴜs : [𝐀𝐋𝐄𝐗𝐀 𝐌𝐎𝐕𝐈𝐄𝐒](https://t.me/alexa_movies)\n</b>""" 
+    CAPTION = """<b>📁ᴛɪᴛʟᴇ :</b> <code>{file_name}</code> \n\n<b>🔊ᴀᴜᴅɪᴏ :</b> {audio} \n\n<b>⚙️sɪᴢᴇ : {file_size} \n\n🔍ʙᴏᴛ : [𝐀𝐋𝐄𝐗𝐀 𝐌𝐎𝐕𝐈𝐄 𝐅𝐈𝐍𝐃𝐄𝐑](https://t.me/Alexa_search_bot)\n</b>""" 
 
     IMDB_TEMPLATE_TXT = """
 <b>Query: {qurey}
