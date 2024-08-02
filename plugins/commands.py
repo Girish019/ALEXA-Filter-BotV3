@@ -390,7 +390,7 @@ async def start(client, message):
             )
             filesarr.append(msg)
         k = await client.send_message(chat_id = message.from_user.id, text=f"<b><u>❗️❗️❗️IMPORTANT❗️️❗️❗️</u></b>\n\nThis Movie Files/Videos will be deleted in <b><u>10 mins</u> 🫥 <i></b>(Due to Copyright Issues)</i>.\n\n<b><i>Please forward this ALL Files/Videos to your Saved Messages and Start Download there</i></b>")
-        await asyncio.sleep(600)
+        await asyncio.sleep(360)
         for x in filesarr:
             await x.delete()
         await k.edit_text("<b>Your All Files/Videos is successfully deleted!!!</b>")
@@ -471,7 +471,7 @@ async def start(client, message):
                 InlineKeyboardButton("Get File Again", callback_data=f'delfile#{file_id}')
             ]]
             k = await msg.reply(f"{cap} \n <b><u>❗️❗️❗️IMPORTANT❗️️❗️❗️</u></b>\n\nThis Movie File/Video will be deleted in <b><u>10 mins</u> 🫥 <i></b>(Due to Copyright Issues)</i>.\n\n<b><i>Please forward this File/Video to your Saved Messages and Start Download there</i></b>",quote=True)
-            await asyncio.sleep(500)
+            await asyncio.sleep(360)
             await msg.delete()
             await k.edit_text(f"<b>Your File/Video is successfully deleted!!!\n\n𝐅𝐢𝐥𝐞 𝐍𝐚𝐦𝐞 : {title} #p1\n\nClick below button to get your deleted file 👇</b>",reply_markup=InlineKeyboardMarkup(btn))
             return
@@ -482,15 +482,17 @@ async def start(client, message):
     title = ' ' + ' '.join(filter(lambda x: not x.startswith('[') and not x.startswith('@'), files.file_name.split()))
     size=get_size(files.file_size)
     f_caption=files.caption
-    # p2 = await client.send_message(chat_id=message.from_user.id, text=f"filename - {title} \n caption - {f_caption}")
+    ##########################################################################################################################################
     get_cap = await write_cap(title, f_caption)
+    p2 = await client.send_message(chat_id=message.from_user.id, text=f"cap - {get_cap}\n\n filename - {title} \n caption - {f_caption}")
     if CUSTOM_FILE_CAPTION:
         try:
             # lod
             # f_caption=CUSTOM_FILE_CAPTION.format(file_name= '' if title is None else title, file_size='' if size is None else size, file_caption='' if f_caption is None else f_caption)
             
-            f_caption= script.CUSTOM_FILE_CAP.format(file_name= title if title is None else get_cap[2], audio = 'NOT FOUND' if title is None else get_cap[0], file_size='' if size is None else size, file_caption='' if f_caption is None else f_caption)
+            f_caption = script.CUSTOM_FILE_CAP.format(file_name= title if title is None else get_cap[0], audio = 'NOT FOUND' if title is None else get_cap[1], file_size='' if size is None else size)
         except Exception as e:
+            print(e)
             p2log = await client.send_message(chat_id=LOG_CHANNEL, text=f"log - {e} \n\nfilename - {title} \n caption - {f_caption}")
             logger.exception(e)
             f_caption=f_caption
@@ -529,7 +531,7 @@ async def start(client, message):
         InlineKeyboardButton("Get File Again", callback_data=f'delfile#{file_id}')
     ]]
     k = await msg.reply("<b><u>❗️❗️❗️IMPORTANT❗️️❗️❗️</u></b>\n\nThis Movie File/Video will be deleted in <b><u>10 mins</u> 🫥 <i></b>(Due to Copyright Issues)</i>.\n\n<b><i>Please forward this File/Video to your Saved Messages and Start Download there</i></b>",quote=True)
-    await asyncio.sleep(500)
+    await asyncio.sleep(360)
     await msg.delete()
     await k.edit_text(f"<b>Your File/Video is successfully deleted!!!\n\n𝐅𝐢𝐥𝐞 𝐍𝐚𝐦𝐞 : {title} #p2\n\nClick below button to get your deleted file 👇</b>",reply_markup=InlineKeyboardMarkup(btn))
     return   
