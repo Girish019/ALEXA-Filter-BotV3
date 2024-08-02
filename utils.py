@@ -228,7 +228,7 @@ def write_cap(f_name, cap):
             year = re.findall("[1|2][8|9|0][0|1|2|8|9][0-9]", f_name)
             title = f_name.split(year[0])[0]
             title += f'({year[0]})'
-    return total_lang, title, year[0]
+    return title, total_lang, year[0]
 
 def get_size(size):
     """Get size in readable format"""
