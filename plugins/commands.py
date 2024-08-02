@@ -351,9 +351,10 @@ async def start(client, message):
             title = ' '.join(filter(lambda x: not x.startswith('[') and not x.startswith('@'), files1.file_name.split()))
             size=get_size(files1.file_size)
             f_caption=files1.caption
+            get_cap = await write_cap(title, f_caption)
             if CUSTOM_FILE_CAPTION:
                 try:
-                    f_caption=CUSTOM_FILE_CAPTION.format(file_name= '' if title is None else title, file_size='' if size is None else size, file_caption='' if f_caption is None else f_caption)
+                    f_caption=CUSTOM_FILE_CAPTION.format(file_name= title if title is None else get_cap[2], audio = 'NOT FOUND' if title is None else get_cap[0], file_size='' if size is None else size, file_caption='' if f_caption is None else f_caption)
                 except Exception as e:
                     logger.exception(e)
                     f_caption=f_caption
@@ -455,9 +456,10 @@ async def start(client, message):
             f_caption = f"<code>{title}</code>"
             # cap = file.caption
             # p1 = await msg.reply(f"filename - {f_caption} \n caption - {cap}",quote=True)
+            get_cap = await write_cap(title, f_caption)
             if CUSTOM_FILE_CAPTION:
                 try:
-                    f_caption=CUSTOM_FILE_CAPTION.format(file_name= '' if title is None else title, file_size='' if size is None else size, file_caption='')
+                    f_caption=CUSTOM_FILE_CAPTION.format(file_name= title if title is None else get_cap[2], audio = 'NOT FOUND' if title is None else get_cap[0], file_size='' if size is None else size, file_caption='')
                 except:
                     return
             await msg.edit_caption(f_caption)
