@@ -483,12 +483,13 @@ async def start(client, message):
     size=get_size(files.file_size)
     f_caption=files.caption
     # p2 = await client.send_message(chat_id=message.from_user.id, text=f"filename - {title} \n caption - {f_caption}")
-    # get_cap = await write_cap(title, f_caption)
+    get_cap = await write_cap(title, f_caption)
     if CUSTOM_FILE_CAPTION:
         try:
-            f_caption=CUSTOM_FILE_CAPTION.format(file_name= '' if title is None else title, file_size='' if size is None else size, file_caption='' if f_caption is None else f_caption)
+            # lod
+            # f_caption=CUSTOM_FILE_CAPTION.format(file_name= '' if title is None else title, file_size='' if size is None else size, file_caption='' if f_caption is None else f_caption)
             
-            # f_caption=CUSTOM_FILE_CAPTION.format(file_name= title if title is None else get_cap[2], audio = 'NOT FOUND' if title is None else get_cap[0], file_size='' if size is None else size, file_caption='' if f_caption is None else f_caption)
+            f_caption=CUSTOM_FILE_CAP.format(file_name= title if title is None else get_cap[2], audio = 'NOT FOUND' if title is None else get_cap[0], file_size='' if size is None else size, file_caption='' if f_caption is None else f_caption)
         except Exception as e:
             logger.exception(e)
             f_caption=f_caption
