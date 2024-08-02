@@ -831,13 +831,18 @@ async def cb_handler(client: Client, query: CallbackQuery):
         size = get_size(files.file_size)
         f_caption = files.caption
         settings = await get_settings(query.message.chat.id)
-        get_cap = await write_cap(title, f_caption)
+        # get_cap = await write_cap(title, f_caption)
         if CUSTOM_FILE_CAPTION:
+            
             try:
-                f_caption = CUSTOM_FILE_CAPTION.format(file_name= title if title is None else get_cap[2], 
-                                                       audio = 'NOT FOUND' if title is None else get_cap[0],
+                f_caption = CUSTOM_FILE_CAPTION.format(file_name='' if title is None else title,
                                                        file_size='' if size is None else size,
                                                        file_caption='' if f_caption is None else f_caption)
+                
+                # f_caption = CUSTOM_FILE_CAPTION.format(file_name= title if title is None else get_cap[2], 
+                #                                        audio = 'NOT FOUND' if title is None else get_cap[0],
+                #                                        file_size='' if size is None else size,
+                #                                        file_caption='' if f_caption is None else f_caption)
             except Exception as e:
                 logger.exception(e)
             f_caption = f_caption
@@ -894,13 +899,17 @@ async def cb_handler(client: Client, query: CallbackQuery):
         size = get_size(files.file_size)
         f_caption = files.caption
         settings = await get_settings(query.message.chat.id)
-        get_cap = await write_cap(title, f_caption)
+        # get_cap = await write_cap(title, f_caption)
         if CUSTOM_FILE_CAPTION:
             try:
-                f_caption = CUSTOM_FILE_CAPTION.format(file_name= title if title is None else get_cap[2], 
-                                                       audio = 'NOT FOUND' if title is None else get_cap[0],
+                f_caption = CUSTOM_FILE_CAPTION.format(file_name='' if title is None else title,
                                                        file_size='' if size is None else size,
                                                        file_caption='' if f_caption is None else f_caption)
+                
+                # f_caption = CUSTOM_FILE_CAPTION.format(file_name= title if title is None else get_cap[2], 
+                #                                        audio = 'NOT FOUND' if title is None else get_cap[0],
+                #                                        file_size='' if size is None else size,
+                #                                        file_caption='' if f_caption is None else f_caption)
             except Exception as e:
                 logger.exception(e)
             f_caption = f_caption
