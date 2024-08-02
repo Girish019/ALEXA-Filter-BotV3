@@ -209,9 +209,9 @@ async def save_group_settings(group_id, key, value):
     await db.update_settings(group_id, current)
 
 def write_cap(f_name, cap):
-    txt = f_name+" eng "+cap
+    txt = "eng "+f_name+" "+cap
     
-    Avl_lang = r'\b([Tt]amil|[Tt]am|[tT]elegu|[tT]el|[Hh]indi|[Hh]in|[Mm]alayalam|[Mm]al|[Kk]annada|[Kk]an|[Ee]nglish|[Ee]ng|[Mm]arathi|[Kk]orean|[Cc]hinese|[Bb]engali|[Bb]angla|[Oo]dia|[Oo]riya|[Uu]rdu|[Pp]unjabi|[Nn]epali|[Ff]rench|[Aa]rabic|[Cc]zech|[Dd]anish|[Gg}erman|[Gg]reek|[Ss]panish|[Ii]taian[Ii]ndonesian|[Mm]alay|[Dd]utch|[Pp]ortuguese|[Rr]omanian|[Rr]ussian|[Tt]hai|[Ss]wedish|[Uu]krainian)\b'  # match language names
+    Avl_lang = r'\b([Tt]amil|[Tt]elugu|[Hh]indi|[Mm]alayalam|[Kk]annada|[Ee]nglish|[Mm]arathi|[Kk]orean|[Cc]hinese|[Bb]engali|[Bb]angla|[Oo]dia|[Oo]riya|[Uu]rdu|[Pp]unjabi|[Nn]epali|[Ff]rench|[Aa]rabic|[Cc]zech|[Dd]anish|[Gg}erman|[Gg]reek|[Ss]panish|[Ii]taian[Ii]ndonesian|[Mm]alay|[Dd]utch|[Pp]ortuguese|[Rr]omanian|[Rr]ussian|[Tt]hai|[Ss]wedish|[Uu]krainian)\b'  # match language names
     reps = {"Kan": "kannada", "Hin": "Hindi", 'Tam': 'Tamil', 'Tel': 'Telugu', 'Mal': 'Malayalam', 'Eng': 'English',      
             "kan": "kannada", "hin": "Hindi", 'tam': 'Tamil', 'tel': 'Telugu', 'mal': 'Malayalam', 'eng': 'English', }
 
@@ -222,7 +222,7 @@ def write_cap(f_name, cap):
     for i, item in enumerate(my_list):
         if item in reps.keys():
             my_list[i] = reps[item]
-            final = " ".join([str(i) for i in my_list])
+            final = " ".join([str(i) for i in my_list])[8:-1]
             matches = re.findall(Avl_lang, final, re.IGNORECASE)
             total_lang = ', '.join([word for i, word in enumerate(matches) if word not in matches[:i]])
             year = re.findall("[1|2][8|9|0][0|1|2|8|9][0-9]", f_name)
